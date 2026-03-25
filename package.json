@@ -33,5 +33,16 @@
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
     "vite": "^7.3.1"
-  }
+  },
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaushik122247/KETJU.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaushik122247/KETJU/issues"
+  },
+  "homepage": "https://github.com/kaushik122247/KETJU#readme"
 }

@@ -4,20 +4,20 @@ function App() {
   return (
     <div className="text-on-surface selection:bg-primary-container selection:text-on-primary-container">
       {/* Top Navigation Bar */}
-      <nav className="h-[72px] w-full sticky top-0 z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center px-6 md:px-12 mx-auto">
-        <div className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <nav className="h-[72px] w-full sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm flex justify-between items-center px-6 md:px-12 mx-auto">
+        <div className="text-xl font-bold text-slate-900 flex items-center gap-2">
           <span className="material-symbols-outlined text-primary"
             style={{fontVariationSettings: "'FILL' 1"}}>account_tree</span>
           KETJU
         </div>
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight"
+          <a className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight"
             href="#how-it-works">How It Works</a>
-          <a className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors"
+          <a className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
             href="#verify">Verify Product</a>
-          <a className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors"
+          <a className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
             href="#farmers">For Farmers</a>
-          <a className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors"
+          <a className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
             href="#dashboard">Dashboard</a>
         </div>
         <div className="flex items-center gap-4">
