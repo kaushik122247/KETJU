@@ -1,3 +1,11 @@
+import { Routes, Route, Link } from 'react-router-dom';
+import RegisterProduct from './pages/RegisterProduct';
+import FarmerDashboard from './pages/FarmerDashboard';
+import AdminPanel from './pages/AdminPanel';
+import VerifyProduct from './pages/VerifyProduct';
+import LogEvent from './pages/LogEvent';
+import QRScanner from './pages/QRScanner';
+
 import './App.css'
 
 function App() {
@@ -11,26 +19,28 @@ function App() {
           KETJU
         </div>
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight"
-            href="#how-it-works">How It Works</a>
-          <a className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
-            href="#verify">Verify Product</a>
-          <a className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
-            href="#farmers">For Farmers</a>
-          <a className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
-            href="#dashboard">Dashboard</a>
+          <Link className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight"
+            to="/#how-it-works">How It Works</Link>
+          <Link className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
+            to="/verify">Verify Product</Link>
+          <Link className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
+            to="/farmer">For Farmers</Link>
+          <Link className="text-slate-600 hover:text-slate-900 font-sans text-sm font-medium tracking-tight transition-colors"
+            to="/admin">Dashboard</Link>
         </div>
         <div className="flex items-center gap-4">
           <button
             className="hidden lg:block px-5 py-2 rounded-full text-sm font-medium text-slate-900 bg-white hover:bg-slate-200 transition-colors">Connect
             Wallet</button>
-          <button
-            className="bg-blue-600 text-white px-8 py-3 rounded-full text-sm font-bold shadow-lg shadow-blue-600/30 hover:-translate-y-1 transition-all">Get
-            Started</button>
+          <Link to="/register" className="bg-blue-600 text-white px-8 py-3 rounded-full text-sm font-bold shadow-lg shadow-blue-600/30 hover:-translate-y-1 transition-all">Get
+            Started</Link>
         </div>
       </nav>
 
       <main>
+        <Routes>
+          <Route path="/" element={<>
+            
         {/* Hero Section */}
         <section className="relative bg-white pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16">
@@ -282,6 +292,15 @@ function App() {
             </div>
           </div>
         </section>
+      
+          </>} />
+          <Route path="/register" element={<RegisterProduct />} />
+          <Route path="/farmer" element={<FarmerDashboard />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/verify" element={<VerifyProduct />} />
+          <Route path="/log-event" element={<LogEvent />} />
+          <Route path="/scanner" element={<QRScanner />} />
+        </Routes>
       </main>
 
       {/* Footer */}

@@ -1,16 +1,90 @@
-import React from 'react';
+<!DOCTYPE html>
 
-function FarmerDashboard() {
-  return (
-    <div 
-      className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface"
-      dangerouslySetInnerHTML={{ __html: `<style>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KETJU | Farmer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffd6f8",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface-variant": "#434655",
+                        "background": "#fcf8ff",
+                        "surface-container": "#f0ecfb",
+                        "on-tertiary-fixed": "#310b32",
+                        "on-surface": "#1b1a25",
+                        "inverse-primary": "#b5c4ff",
+                        "tertiary-fixed-dim": "#edb5e6",
+                        "secondary-fixed-dim": "#b6c5fb",
+                        "surface-container-highest": "#e4e0f0",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcd8e7",
+                        "on-primary-fixed": "#00164e",
+                        "outline-variant": "#c3c5d8",
+                        "outline": "#737687",
+                        "on-secondary-fixed": "#071845",
+                        "inverse-surface": "#302f3b",
+                        "surface": "#fcf8ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#623761",
+                        "tertiary": "#673c65",
+                        "secondary-container": "#b9c7fd",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "surface-container-low": "#f6f2ff",
+                        "on-primary-container": "#d8deff",
+                        "on-background": "#1b1a25",
+                        "inverse-on-surface": "#f3effe",
+                        "surface-container-high": "#eae6f5",
+                        "tertiary-container": "#81537e",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#4e5c8c",
+                        "on-secondary-fixed-variant": "#364572",
+                        "surface-tint": "#0050e3",
+                        "primary": "#003fb7",
+                        "on-secondary-container": "#445281",
+                        "surface-bright": "#fcf8ff",
+                        "primary-container": "#0254ec",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-variant": "#e4e0f0",
+                        "on-tertiary-container": "#ffd2f8",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#003cae",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
         body { font-family: 'Inter', sans-serif; }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
-
+</head>
+<body class="bg-background text-on-surface min-h-screen">
 <!-- TopNavBar -->
 <header class="docked full-width top-0 sticky z-50 bg-[#fcf8ff]/70 dark:bg-[#1b1a25]/70 backdrop-blur-xl shadow-[0_48px_48px_0_rgba(27,26,37,0.06)] h-16 flex justify-between items-center w-full px-8">
 <div class="flex items-center gap-2">
@@ -320,9 +394,4 @@ function FarmerDashboard() {
 </div>
 </main>
 </div>
-` }}
-    />
-  );
-}
-
-export default FarmerDashboard;
+</body></html>

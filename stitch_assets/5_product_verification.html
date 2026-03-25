@@ -1,17 +1,86 @@
-import React from 'react';
+<!DOCTYPE html>
 
-function VerifyProduct() {
-  return (
-    <div 
-      className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface"
-      dangerouslySetInnerHTML={{ __html: `<style>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KETJU | Product Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#e4e0f0",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#00164e",
+                        "on-tertiary-fixed": "#310b32",
+                        "on-secondary-fixed": "#071845",
+                        "surface-container-low": "#f6f2ff",
+                        "on-tertiary-fixed-variant": "#623761",
+                        "secondary-fixed-dim": "#b6c5fb",
+                        "surface-container-high": "#eae6f5",
+                        "primary-fixed": "#dce1ff",
+                        "on-primary-container": "#d8deff",
+                        "surface-tint": "#0050e3",
+                        "secondary": "#4e5c8c",
+                        "on-secondary-fixed-variant": "#364572",
+                        "secondary-fixed": "#dbe1ff",
+                        "primary-container": "#0254ec",
+                        "secondary-container": "#b9c7fd",
+                        "inverse-surface": "#302f3b",
+                        "tertiary-fixed": "#ffd6f8",
+                        "on-secondary-container": "#445281",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0ecfb",
+                        "on-primary-fixed-variant": "#003cae",
+                        "inverse-on-surface": "#f3effe",
+                        "tertiary": "#673c65",
+                        "on-background": "#1b1a25",
+                        "surface-dim": "#dcd8e7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1a25",
+                        "background": "#fcf8ff",
+                        "on-surface-variant": "#434655",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#ffd2f8",
+                        "surface": "#fcf8ff",
+                        "outline": "#737687",
+                        "inverse-primary": "#b5c4ff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e4e0f0",
+                        "surface-bright": "#fcf8ff",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "tertiary-fixed-dim": "#edb5e6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003fb7",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#81537e",
+                        "outline-variant": "#c3c5d8"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
         }
         body { font-family: 'Inter', sans-serif; }
     </style>
-
+</head>
+<body class="bg-background text-on-background antialiased">
 <!-- Top Navigation Bar -->
 <header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-sm dark:shadow-none transition-all">
 <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
@@ -316,9 +385,4 @@ function VerifyProduct() {
 <span class="text-[10px] font-bold uppercase tracking-widest mt-1">Settings</span>
 </a>
 </nav>
-` }}
-    />
-  );
-}
-
-export default VerifyProduct;
+</body></html>
