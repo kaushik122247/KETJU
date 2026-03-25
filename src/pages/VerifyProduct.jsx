@@ -12,21 +12,38 @@ function VerifyProduct() {
         body { font-family: 'Inter', sans-serif; }
     </style>
 
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-sm dark:shadow-none transition-all">
-<div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
-<div class="flex items-center gap-2">
-<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
-</div>
+<!-- Unified TopNavBar -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center h-[72px] px-8 shadow-sm">
+  <!-- Left: Logo -->
+  <div class="flex-1 flex justify-start w-full md:w-auto mt-2 md:mt-0">
+      <div class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onclick="window.location.href='/'">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU
+      </div>
+  </div>
 
-</div>
-<nav class="hidden md:flex gap-8 font-sans antialiased text-sm font-medium tracking-tight">
-<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
-<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1" href="#">Trace</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Provenance</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Insight</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Network</a>
-</nav>
+  <!-- Center: Nav Items -->
+  <nav class="hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-semibold">
+    <a href="/" class="text-slate-500 hover:text-slate-900 flex items-center gap-1 transition-colors"><span class="material-symbols-outlined text-sm">home</span> Home</a>
+    
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="/verify">Trace</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="#">Provenance</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="#">Insight</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors" href="#">Network</a>
+        
+  </nav>
+
+  <!-- Right: Actions -->
+  <div class="flex-1 flex justify-end items-center gap-3 md:gap-4 mt-2 md:mt-0">
+    
+<button class="bg-white border-1.5 border-primary-container text-primary-container px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container transition-all flex items-center gap-2" onclick="window.location.reload()">
+    <span class="material-symbols-outlined text-sm">search</span>
+    Verify Another Product
+</button>
+        
+  </div>
+</header>
+<!-- Filler to prevent content overlap -->
+<div class="h-[72px] w-full"></div>
 <button class="bg-white border-1.5 border-primary-container text-primary-container px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container transition-all flex items-center gap-2">
 <span class="material-symbols-outlined text-sm">search</span>
                 Verify Another Product

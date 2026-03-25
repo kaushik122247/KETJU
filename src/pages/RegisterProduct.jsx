@@ -17,31 +17,39 @@ function RegisterProduct() {
         .custom-shadow { box-shadow: 0 48px 0 rgba(27, 26, 37, 0.06); }
     </style>
 
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-none shadow-sm shadow-blue-900/5">
-<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto w-full">
-<div class="flex items-center gap-8">
+<!-- Unified TopNavBar -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center h-[72px] px-8 shadow-sm">
+  <!-- Left: Logo -->
+  <div class="flex-1 flex justify-start w-full md:w-auto mt-2 md:mt-0">
+      <div class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onclick="window.location.href='/'">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU
+      </div>
+  </div>
 
-<div class="hidden md:flex items-center gap-6">
-<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">Dashboard</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">My Products</a>
-<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="#">Register Product</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">Log Event</a>
+  <!-- Center: Nav Items -->
+  <nav class="hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-semibold">
+    <a href="/" class="text-slate-500 hover:text-slate-900 flex items-center gap-1 transition-colors"><span class="material-symbols-outlined text-sm">home</span> Home</a>
+    
+<a class="text-slate-500 hover:text-slate-900 transition-colors flex items-center" href="/farmer">Dashboard</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors flex items-center" href="#">My Products</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors flex items-center" href="/register">Add Product</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors flex items-center" href="/log-event">Log Event</a>
+        
+  </nav>
+
+  <!-- Right: Actions -->
+  <div class="flex-1 flex justify-end items-center gap-3 md:gap-4 mt-2 md:mt-0">
+    
+<div class="hidden lg:flex items-center bg-[#16A34A]/10 text-[#16A34A] px-3 py-1.5 rounded-full text-[10px] font-bold tracking-wide uppercase">
+    Farmer Role
 </div>
-</div>
-<div class="flex items-center gap-4">
-<div class="bg-surface-container-low px-4 py-2 rounded-full flex items-center gap-3">
-<div class="flex items-center gap-2">
-<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">🌾 Farmer</span>
-<span class="text-sm font-mono text-primary">0x71C...4f2</span>
-</div>
-<img class="w-8 h-8 rounded-full bg-primary-fixed" data-alt="Farmer profile avatar with a friendly expression and rustic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBmrsKPjQQsAJ3Ybsfi3wI_EOVpxBlgfojy36-Qtgo1pHwqo__ymQbml1-Kzbi9L0n9Z-Eo-fKxVE_vW7RWMosjwkGOvF6qv-c2rvd5zGae5KvpUVX-Qn3qJ0yBEj2-7P7QU3asB_vLMp617EX19stPcazppxO_YldDJeeMAc2DuW0KWbcXpbQy5G9fc-vi-zj9UfTJ7Vxf4oA7DA7kLzKToyWuhVnZft4aWoG4W_-hzpGL_2CG8QhQPIzBZYUrv3lN60tumarH18"/>
-</div>
- <button class="px-6 py-2 border-1.5 border-outline-variant text-on-surface rounded-full text-sm font-medium hover:bg-surface-container-high transition-all active:scale-95">Disconnect</button>
-</div>
-</div>
-</nav>
+<code class="hidden lg:block text-xs font-medium text-on-surface-variant bg-surface-container-low px-2 py-1.5 rounded border border-outline-variant/20">0x71C...4e21</code>
+<button class="text-sm font-semibold text-primary border border-primary px-4 py-1.5 rounded-full hover:bg-primary-container/5 transition-all">Disconnect</button>
+        
+  </div>
+</header>
+<!-- Filler to prevent content overlap -->
+<div class="h-[72px] w-full"></div>
 <!-- Page Header -->
 <header class="pt-32 pb-20 bg-white border-none">
 <div class="max-w-[800px] mx-auto px-6">

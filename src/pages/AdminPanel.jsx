@@ -10,34 +10,38 @@ function AdminPanel() {
         .glass-panel { backdrop-filter: blur(20px); }
     </style>
 
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none font-inter antialiased">
-<div class="flex items-center gap-8">
-<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
+<!-- Unified TopNavBar -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center h-[72px] px-8 shadow-sm">
+  <!-- Left: Logo -->
+  <div class="flex-1 flex justify-start w-full md:w-auto mt-2 md:mt-0">
+      <div class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onclick="window.location.href='/'">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU
+      </div>
+  </div>
 
-<div class="hidden md:flex gap-6 items-center">
-<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200" href="#">Dashboard</a>
-<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700" href="#">Governance</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200" href="#">Audit Logs</a>
+  <!-- Center: Nav Items -->
+  <nav class="hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-semibold">
+    <a href="/" class="text-slate-500 hover:text-slate-900 flex items-center gap-1 transition-colors"><span class="material-symbols-outlined text-sm">home</span> Home</a>
+    
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200" href="/admin">Dashboard</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200" href="#">Governance</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200" href="#">Audit Logs</a>
+        
+  </nav>
+
+  <!-- Right: Actions -->
+  <div class="flex-1 flex justify-end items-center gap-3 md:gap-4 mt-2 md:mt-0">
+    
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 bg-error-container text-on-error-container rounded-full text-xs font-bold">
+    <span class="material-symbols-outlined text-sm">lock</span>
+    Admin
 </div>
-</div>
-<div class="flex items-center gap-3">
-<div class="flex items-center gap-2 px-3 py-1 bg-error-container text-on-error-container rounded-full text-sm font-bold">
-<span class="material-symbols-outlined text-sm">lock</span>
-                🔐 Admin
-            </div>
-<div class="hidden lg:flex flex-col items-end mr-2">
-<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Connected Wallet</span>
-<span class="text-xs font-mono font-medium text-primary">0x123...456</span>
-</div>
- <button class="px-4 py-1.5 border-1.5 border-primary-container text-primary-container rounded-full text-sm font-semibold hover:bg-primary-container/5 transition-all active:scale-95">Disconnect</button>
-<div class="flex items-center gap-2 ml-4">
-<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors duration-200 rounded-full active:scale-95"><span class="material-symbols-outlined">notifications</span></button>
-<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors duration-200 rounded-full active:scale-95"><span class="material-symbols-outlined">settings</span></button>
-</div>
-</div>
-</nav>
+<button class="px-4 py-1.5 border-1.5 border-primary-container text-primary-container rounded-full text-sm font-semibold hover:bg-primary-container/5 transition-all">Disconnect</button>
+        
+  </div>
+</header>
+<!-- Filler to prevent content overlap -->
+<div class="h-[72px] w-full"></div>
 <!-- SideNavBar -->
 <aside class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col gap-y-2 p-4 pt-20 no-border bg-slate-100 dark:bg-slate-900 text-sm font-medium font-inter">
 <div class="px-4 mb-6">

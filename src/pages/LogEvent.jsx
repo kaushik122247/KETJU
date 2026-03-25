@@ -12,31 +12,41 @@ function LogEvent() {
         .glass-panel { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.7); }
     </style>
 
-<!-- Top Navigation Bar -->
-<header class="bg-[#fcf8ff] sticky top-[72px] z-50">
-<nav class="flex justify-between items-center w-full px-8 py-4 max-w-[1280px] mx-auto">
-<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
+<!-- Unified TopNavBar -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center h-[72px] px-8 shadow-sm">
+  <!-- Left: Logo -->
+  <div class="flex-1 flex justify-start w-full md:w-auto mt-2 md:mt-0">
+      <div class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onclick="window.location.href='/'">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU
+      </div>
+  </div>
 
-<div class="hidden md:flex items-center gap-8 font-['Inter'] antialiased tracking-tight text-sm font-medium">
-<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
-<a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">Dashboard</a>
-<a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">My Products</a>
-<a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">Add Product</a>
-<a class="text-[#0254EC] font-bold border-b-2 border-[#0254EC] pb-1" href="#">Log Event</a>
+  <!-- Center: Nav Items -->
+  <nav class="hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-semibold">
+    <a href="/" class="text-slate-500 hover:text-slate-900 flex items-center gap-1 transition-colors"><span class="material-symbols-outlined text-sm">home</span> Home</a>
+    
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200" href="/farmer">Dashboard</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200" href="#">My Products</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200" href="/register">Add Product</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors duration-200 font-bold text-primary" href="/log-event">Log Event</a>
+        
+  </nav>
+
+  <!-- Right: Actions -->
+  <div class="flex-1 flex justify-end items-center gap-3 md:gap-4 mt-2 md:mt-0">
+    
+<div class="hidden lg:flex bg-amber-100 text-amber-700 px-3 py-1.5 rounded-full text-[10px] font-bold items-center border border-amber-200 uppercase">
+    Processor
 </div>
-<div class="flex items-center gap-3">
-<div class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 border border-amber-200">
-<span class="material-symbols-outlined text-sm">settings_suggest</span>
-                    Processor
-                </div>
-<div class="bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-xs font-mono border border-outline-variant/20">
-                    0x7a3b...2f90
-                </div>
- <button class="bg-primary-container text-on-primary px-6 py-2 rounded-full text-sm font-semibold active:scale-95 duration-150 transition-all shadow-md hover:bg-primary">
-                    Disconnect
-                </button>
-</div>
-</nav>
+<code class="hidden lg:block bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-[10px] font-mono border border-outline-variant/20">0x7a3b...2f90</code>
+<button class="bg-primary-container text-on-primary px-6 py-1.5 rounded-full text-sm font-semibold hover:bg-primary transition-all shadow-sm">
+    Disconnect
+</button>
+        
+  </div>
+</header>
+<!-- Filler to prevent content overlap -->
+<div class="h-[72px] w-full"></div>
 </header>
 <main class="max-w-[1280px] mx-auto px-8 py-12">
 <!-- Breadcrumb & Header -->
