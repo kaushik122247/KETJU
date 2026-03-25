@@ -14,10 +14,10 @@ function FarmerDashboard() {
 <!-- TopNavBar -->
 <header class="docked full-width top-0 sticky z-50 bg-[#fcf8ff]/70 dark:bg-[#1b1a25]/70 backdrop-blur-xl shadow-[0_48px_48px_0_rgba(27,26,37,0.06)] h-16 flex justify-between items-center w-full px-8">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#003fb7] text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
-
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 </div>
 <nav class="hidden md:flex items-center gap-8 h-full">
+<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
 <a class="font-semibold text-sm tracking-tight text-[#003fb7] dark:border-[#4d8eff] border-b-2 border-[#003fb7] pb-1 h-full flex items-center" href="#">Dashboard</a>
 <a class="font-semibold text-sm tracking-tight text-[#434655] dark:text-[#c3c5d8] hover:text-[#003fb7] transition-colors h-full flex items-center" href="#">My Products</a>
 <a class="font-semibold text-sm tracking-tight text-[#434655] dark:text-[#c3c5d8] hover:text-[#003fb7] transition-colors h-full flex items-center" href="#">Add Product</a>
@@ -29,17 +29,14 @@ function FarmerDashboard() {
                 Farmer Role
             </div>
 <code class="text-xs font-medium text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-outline-variant/20">0x71C...4e21</code>
-<button class="text-sm font-semibold text-primary border border-primary px-4 py-1.5 rounded-full hover:bg-primary-container/5 transition-all active:scale-95">Disconnect</button>
+ <button class="text-sm font-semibold text-primary border border-primary px-4 py-1.5 rounded-full hover:bg-primary-container/5 transition-all active:scale-95">Disconnect</button>
 </div>
 <div class="bg-[#f6f2ff] dark:bg-[#2b2938] h-[1px] w-full absolute bottom-0 left-0"></div>
 </header>
 <div class="flex">
 <!-- SideNavBar -->
 <aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 z-40 bg-[#fcf8ff] dark:bg-[#1b1a25] flex flex-col py-8 px-4 gap-2">
-<div class="mb-6 px-4">
-<h3 class="text-lg font-bold text-[#1b1a25] dark:text-[#ffffff]">KETJU Pro</h3>
-<p class="text-xs text-on-surface-variant">Farmer Edition</p>
-</div>
+
 <nav class="flex-1 flex flex-col gap-1">
 <a class="bg-[#0254ec] text-white rounded-full shadow-lg shadow-[#0254ec]/20 px-4 py-3 flex items-center gap-3 transition-all active:translate-x-1" href="#">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>

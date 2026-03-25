@@ -15,8 +15,10 @@ function LogEvent() {
 <!-- Top Navigation Bar -->
 <header class="bg-[#fcf8ff] sticky top-[72px] z-50">
 <nav class="flex justify-between items-center w-full px-8 py-4 max-w-[1280px] mx-auto">
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 
 <div class="hidden md:flex items-center gap-8 font-['Inter'] antialiased tracking-tight text-sm font-medium">
+<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
 <a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">Dashboard</a>
 <a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">My Products</a>
 <a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">Add Product</a>
@@ -30,7 +32,7 @@ function LogEvent() {
 <div class="bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full text-xs font-mono border border-outline-variant/20">
                     0x7a3b...2f90
                 </div>
-<button class="bg-primary-container text-on-primary px-6 py-2 rounded-full text-sm font-semibold active:scale-95 duration-150 transition-all shadow-md hover:bg-primary">
+ <button class="bg-primary-container text-on-primary px-6 py-2 rounded-full text-sm font-semibold active:scale-95 duration-150 transition-all shadow-md hover:bg-primary">
                     Disconnect
                 </button>
 </div>
@@ -83,6 +85,8 @@ function LogEvent() {
 <div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden">
 <div class="flex items-center justify-between mb-4">
 <div class="flex items-center gap-4">
+<a href="/" class="text-sm font-semibold text-primary border border-transparent px-4 py-1.5 rounded-full hover:bg-primary/5 transition-all">Home</a>
+
 <img class="w-16 h-16 rounded-lg object-cover" data-alt="close up of fresh red cherry tomatoes still on the vine in a rustic wooden crate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOxwZ_qwBWSVcwG_ale6BGpb4sFOIO6bBs5LqdFLBmGPsayEoYlxtE_0WMPkTqTan9FE1-FjhNCZ9HvTDf7YdSkgXEINQYKpQ8N0goR2JpDzfRvoCejmSgFGJXfQvFkZDp0RhcEE8lnnCu6V-XoWANl8Ca43IWAq0vbKCSMHcCA3A6l0YW3AkBOeuPLVhjwIDMFtp_9Bv3Rkz4jYq6JNDDGZMNYpPB_p7KXTHE4CanF9cU4TMa-XvAP-NjLLmHF-NJIP9QmYajmHY"/>
 <div>
 <h3 class="text-lg font-bold">Organic Cherry Tomatoes</h3>

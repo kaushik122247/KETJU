@@ -16,11 +16,12 @@ function VerifyProduct() {
 <header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-sm dark:shadow-none transition-all">
 <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
 <div class="flex items-center gap-2">
-<div class="bg-primary-container p-1.5 rounded-lg flex items-center justify-center">
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 </div>
 
 </div>
 <nav class="hidden md:flex gap-8 font-sans antialiased text-sm font-medium tracking-tight">
+<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
 <a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1" href="#">Trace</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Provenance</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Insight</a>
@@ -62,6 +63,8 @@ Blockchain Verified
 <!-- Farmer Section -->
 <div class="bg-surface-container p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all hover:bg-surface-container-high">
 <div class="flex items-center gap-4">
+<a href="/" class="text-sm font-semibold text-primary border border-transparent px-4 py-1.5 rounded-full hover:bg-primary/5 transition-all">Home</a>
+
 <div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-white text-xl font-bold border-4 border-white shadow-sm overflow-hidden">
 <img alt="RK" class="w-full h-full object-cover" data-alt="portrait of a happy Indian farmer in traditional attire smiling with a blurred tomato farm in background soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYmzr_VajyOgj619n2E_AC_8sqdWQLDstbQfsUF_P4K4gAcZgErRBKFSUEdzM7YPVohKRNyRXOrqg3-A8GFxCf2gGCDupnLt45Zs7IQUhvcC5qhpd7OYcaiBe3ltd5_toa7KjO_x46m3vTrbKWTEIFEobeVg4jkY132DXvMzSI6vwrw3XQ6f4A_RsnN9_1PmD-ybyv_zRkrR0RG93e_pjOCUIaJXZJoIT1BSGP2ZSDSCdlKB0ok-JEqjBgKcbWivtcDpJHFpCZk8I"/>
 </div>

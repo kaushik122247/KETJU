@@ -13,8 +13,10 @@ function AdminPanel() {
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none font-inter antialiased">
 <div class="flex items-center gap-8">
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 
 <div class="hidden md:flex gap-6 items-center">
+<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200" href="#">Dashboard</a>
 <a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700" href="#">Governance</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200" href="#">Audit Logs</a>
@@ -29,7 +31,7 @@ function AdminPanel() {
 <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Connected Wallet</span>
 <span class="text-xs font-mono font-medium text-primary">0x123...456</span>
 </div>
-<button class="px-4 py-1.5 border-1.5 border-primary-container text-primary-container rounded-full text-sm font-semibold hover:bg-primary-container/5 transition-all active:scale-95">Disconnect</button>
+ <button class="px-4 py-1.5 border-1.5 border-primary-container text-primary-container rounded-full text-sm font-semibold hover:bg-primary-container/5 transition-all active:scale-95">Disconnect</button>
 <div class="flex items-center gap-2 ml-4">
 <button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors duration-200 rounded-full active:scale-95"><span class="material-symbols-outlined">notifications</span></button>
 <button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors duration-200 rounded-full active:scale-95"><span class="material-symbols-outlined">settings</span></button>

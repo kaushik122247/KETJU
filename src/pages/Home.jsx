@@ -5,25 +5,28 @@ function Home() {
     <div 
       className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface"
       dangerouslySetInnerHTML={{ __html: `<style>
+
       body { font-family: 'Inter', sans-serif; background-color: #fcf8ff; }
       .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
       .glass-panel { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.7); }
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .step-line { background: repeating-linear-gradient(90deg, #c3c5d8, #c3c5d8 4px, transparent 4px, transparent 8px); }
-    </style>
+    
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
 
 <!-- Top Navigation Bar -->
 <nav class="h-[72px] w-full sticky top-0 z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center px-6 md:px-12 mx-auto">
 <div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight" href="#">How It Works</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="#">Verify Product</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="#">For Farmers</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="#">Dashboard</a>
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight" href="#how-it-works">How It Works</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/verify">Verify Product</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/farmer">For Farmers</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/admin">Dashboard</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="hidden lg:block px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors">Connect Wallet</button>
-<button class="bg-primary-container text-on-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 scale-95 active:scale-90 transition-transform">Get Started</button>
+<a href="/farmer" class="hidden lg:block"><button class="px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors w-full cursor-pointer">Connect Wallet</button></a>
+<a href="/register" class="inline-block"><button class="bg-primary-container text-on-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 scale-95 active:scale-90 transition-transform cursor-pointer">Get Started</button></a>
 </div>
 </nav>
 <main>
@@ -41,13 +44,13 @@ function Home() {
                     </h1>
 <p class="text-[18px] text-[#25242F] leading-relaxed mb-10 max-w-xl opacity-80">KETJU uses Polygon blockchain to create an immutable, tamper-proof record of your food's journey. Scan any QR code on packaging to instantly verify organic certification and supply chain authenticity.</p>
 <div class="flex flex-wrap gap-4 mb-16">
-<button class="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all">
+<a href="/scanner" class="inline-block"><button class="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer">
 <span class="material-symbols-outlined">qr_code_scanner</span>
                             Scan a QR Code
-                        </button>
-<button class="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all">
+                        </button></a>
+<a href="/register" class="inline-block"><button class="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all cursor-pointer">
                             Register Your Farm
-                        </button>
+                        </button></a>
 </div>
 <div class="flex flex-wrap items-center gap-x-12 gap-y-6 pt-10 border-t border-slate-100">
 <div class="flex flex-col">
@@ -241,9 +244,9 @@ function Home() {
 <div class="w-full lg:w-1/2">
 <h2 class="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">Know Exactly What You're Eating</h2>
 <p class="text-xl text-slate-300 leading-relaxed mb-12">Scan the QR code on any KETJU-verified product to see the full journey — from the farm where it was grown to the store where you bought it.</p>
-<button class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/10 transition-all active:scale-95">
+<a href="/verify" class="inline-block"><button class="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/10 transition-all active:scale-95 cursor-pointer">
                         Try the Verifier
-                    </button>
+                    </button></a>
 </div>
 <!-- Verification Card Mockup -->
 <div class="w-full lg:w-1/2">
@@ -320,9 +323,9 @@ function Home() {
 <div>
 <h5 class="text-white font-bold mb-6">Product</h5>
 <ul class="space-y-4">
-<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-light" href="#">Traceability</a></li>
-<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-light" href="#">Verification</a></li>
-<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-light" href="#">Farmers Portal</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-light" href="/log-event">Traceability</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-light" href="/verify">Verification</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-light" href="/farmer">Farmers Portal</a></li>
 </ul>
 </div>
 <div>

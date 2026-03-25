@@ -72,8 +72,7 @@ function QRScanner() {
 </div>
 <div class="z-10 mt-4 flex flex-col items-center gap-6">
 <div class="flex items-center gap-2">
-<span class="w-2 h-2 bg-primary-fixed rounded-full pulse"></span>
-<span class="text-xs font-bold tracking-[0.2em] uppercase">Scanning...</span>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 </div>
 <div class="flex gap-4">
 <button class="w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-full border border-white/20 active:scale-90 transition-transform">
@@ -110,8 +109,10 @@ function QRScanner() {
 <!-- Item 1 -->
 <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-2xl active:bg-surface-container transition-colors group">
 <div class="flex items-center gap-4">
+<a href="/" class="text-sm font-semibold text-primary border border-transparent px-4 py-1.5 rounded-full hover:bg-primary/5 transition-all">Home</a>
+
 <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#10B981]">
-<span class="material-symbols-outlined" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
+
 </div>
 <div>
 <p class="font-bold text-on-surface">Organic Cherry Tomatoes</p>

@@ -23,6 +23,7 @@ function RegisterProduct() {
 <div class="flex items-center gap-8">
 
 <div class="hidden md:flex items-center gap-6">
+<a href="/" class="text-sm font-bold text-primary flex items-center gap-1 mr-4"><span class="material-symbols-outlined text-sm">home</span> Home</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">Dashboard</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">My Products</a>
 <a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="#">Register Product</a>
@@ -37,7 +38,7 @@ function RegisterProduct() {
 </div>
 <img class="w-8 h-8 rounded-full bg-primary-fixed" data-alt="Farmer profile avatar with a friendly expression and rustic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBmrsKPjQQsAJ3Ybsfi3wI_EOVpxBlgfojy36-Qtgo1pHwqo__ymQbml1-Kzbi9L0n9Z-Eo-fKxVE_vW7RWMosjwkGOvF6qv-c2rvd5zGae5KvpUVX-Qn3qJ0yBEj2-7P7QU3asB_vLMp617EX19stPcazppxO_YldDJeeMAc2DuW0KWbcXpbQy5G9fc-vi-zj9UfTJ7Vxf4oA7DA7kLzKToyWuhVnZft4aWoG4W_-hzpGL_2CG8QhQPIzBZYUrv3lN60tumarH18"/>
 </div>
-<button class="px-6 py-2 border-1.5 border-outline-variant text-on-surface rounded-full text-sm font-medium hover:bg-surface-container-high transition-all active:scale-95">Disconnect</button>
+ <button class="px-6 py-2 border-1.5 border-outline-variant text-on-surface rounded-full text-sm font-medium hover:bg-surface-container-high transition-all active:scale-95">Disconnect</button>
 </div>
 </div>
 </nav>
@@ -217,8 +218,7 @@ function RegisterProduct() {
 <footer class="fixed bottom-0 w-full z-50 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
 <div class="flex justify-between items-center px-10 py-6 w-full max-w-[1440px] mx-auto">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-amber-500 text-lg" data-icon="warning">warning</span>
-<span class="text-xs font-bold uppercase tracking-wider text-amber-600">This action will trigger a MetaMask signature request</span>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 </div>
 <div class="flex items-center gap-4">
 <button class="text-slate-500 dark:text-slate-400 flex items-center gap-2 px-6 label-md font-bold uppercase tracking-wider hover:opacity-90 transition-opacity active:translate-y-0.5">
