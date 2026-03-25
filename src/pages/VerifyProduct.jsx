@@ -17,9 +17,8 @@ function VerifyProduct() {
 <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
 <div class="flex items-center gap-2">
 <div class="bg-primary-container p-1.5 rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">eco</span>
 </div>
-<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
+
 </div>
 <nav class="hidden md:flex gap-8 font-sans antialiased text-sm font-medium tracking-tight">
 <a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1" href="#">Trace</a>
@@ -50,12 +49,10 @@ function VerifyProduct() {
 <p class="text-xl text-on-surface-variant mb-8">Batch #CT-2024-0871 · Registered March 12, 2024</p>
 <div class="flex flex-wrap gap-3 mb-12">
 <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-sm font-bold">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
-                            Organic Certified
+Organic Certified
                         </span>
 <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-on-secondary-fixed text-white text-sm font-bold">
-<span class="material-symbols-outlined text-sm">shield</span>
-                            Blockchain Verified
+Blockchain Verified
                         </span>
 <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-bold">
 <span class="material-symbols-outlined text-sm">lab_research</span>
@@ -127,7 +124,6 @@ function VerifyProduct() {
 </div>
 </div>
 <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-white shadow-sm flex items-center justify-center z-10">
-<span class="material-symbols-outlined text-white text-xl" style="font-variation-settings: 'FILL' 1;">eco</span>
 </div>
 <div class="hidden md:block md:w-[45%]"></div>
 </div>

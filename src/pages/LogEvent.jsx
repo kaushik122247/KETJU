@@ -13,9 +13,9 @@ function LogEvent() {
     </style>
 
 <!-- Top Navigation Bar -->
-<header class="bg-[#fcf8ff] sticky top-0 z-50">
+<header class="bg-[#fcf8ff] sticky top-[72px] z-50">
 <nav class="flex justify-between items-center w-full px-8 py-4 max-w-[1280px] mx-auto">
-<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
+
 <div class="hidden md:flex items-center gap-8 font-['Inter'] antialiased tracking-tight text-sm font-medium">
 <a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">Dashboard</a>
 <a class="text-[#434655] hover:text-[#1b1a25] transition-colors duration-200" href="#">My Products</a>
