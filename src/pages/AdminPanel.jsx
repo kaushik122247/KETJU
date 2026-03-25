@@ -13,7 +13,7 @@ function AdminPanel() {
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 h-16 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none font-inter antialiased">
 <div class="flex items-center gap-8">
-<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">KETJU</span>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 <div class="hidden md:flex gap-6 items-center">
 <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200" href="#">Dashboard</a>
 <a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700" href="#">Governance</a>

@@ -19,7 +19,7 @@ function VerifyProduct() {
 <div class="bg-primary-container p-1.5 rounded-lg flex items-center justify-center">
 <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">eco</span>
 </div>
-<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">KETJU</span>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 </div>
 <nav class="hidden md:flex gap-8 font-sans antialiased text-sm font-medium tracking-tight">
 <a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1" href="#">Trace</a>

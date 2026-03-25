@@ -44,7 +44,7 @@ function QRScanner() {
 <button class="flex items-center justify-center p-2 rounded-full active:scale-95 duration-200 hover:bg-[#f0ecfb] text-[#0254EC]">
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
 </button>
-<h1 class="font-['Inter'] font-bold tracking-tight text-xl font-black text-[#003fb7] dark:text-[#0254ec]">KETJU</h1>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 <div class="w-10"></div> <!-- Spacer for symmetry -->
 </div>
 <div class="bg-[#f6f2ff] dark:bg-[#2d2c3d] h-[1px] w-full"></div>

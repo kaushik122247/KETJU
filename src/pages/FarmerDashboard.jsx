@@ -15,7 +15,7 @@ function FarmerDashboard() {
 <header class="docked full-width top-0 sticky z-50 bg-[#fcf8ff]/70 dark:bg-[#1b1a25]/70 backdrop-blur-xl shadow-[0_48px_48px_0_rgba(27,26,37,0.06)] h-16 flex justify-between items-center w-full px-8">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-[#003fb7] text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
-<span class="text-xl font-black tracking-tighter text-[#003fb7] dark:text-[#4d8eff]">KETJU</span>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 </div>
 <nav class="hidden md:flex items-center gap-8 h-full">
 <a class="font-semibold text-sm tracking-tight text-[#003fb7] dark:border-[#4d8eff] border-b-2 border-[#003fb7] pb-1 h-full flex items-center" href="#">Dashboard</a>

@@ -21,7 +21,7 @@ function RegisterProduct() {
 <nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-none shadow-sm shadow-blue-900/5">
 <div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto w-full">
 <div class="flex items-center gap-8">
-<span class="text-2xl font-bold tracking-tight text-blue-700 dark:text-blue-500">KETJU</span>
+<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
 <div class="hidden md:flex items-center gap-6">
 <a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">Dashboard</a>
 <a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="#">My Products</a>
