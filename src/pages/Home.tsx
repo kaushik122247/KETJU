@@ -7,41 +7,41 @@ const Home: React.FC = () => {
   return (
     <div className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface">
       <Navbar />
-      
+
       <main>
         {/* Section 1: Hero Section */}
         <section className="relative bg-white pt-8 pb-24 md:pt-12 md:pb-40 overflow-hidden mt-[72px]">
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16">
-            
+
             {/* Left Content */}
             <div className="w-full md:w-[55%]">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold mb-8">
                 <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>eco</span>
                 Blockchain Verified Supply Chain
               </div>
-              
+
               <h1 className="text-[40px] md:text-[56px] leading-[1.1] font-extrabold text-[#393F49] tracking-tight mb-6">
                 From Farm to Consumer, Every Step Verified
               </h1>
-              
+
               <p className="text-[18px] text-[#25242F] leading-relaxed mb-10 max-w-xl opacity-80">
                 KETJU uses Polygon blockchain to create an immutable, tamper-proof record of your food's journey. Scan any QR code on packaging to instantly verify organic certification and supply chain authenticity.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-16">
                 <Link to="/scanner" className="inline-block">
-                  <button className="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer border-none">
+                  <button className="bg-blue-600 !text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-blue-600/20 hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all cursor-pointer border-none">
                     <span className="material-symbols-outlined">qr_code_scanner</span>
                     Scan a QR Code
                   </button>
                 </Link>
                 <Link to="/register" className="inline-block">
-                  <button className="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all cursor-pointer bg-transparent">
+                  <button className="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 hover:scale-105 active:scale-95 transition-all cursor-pointer bg-transparent">
                     Register Your Farm
                   </button>
                 </Link>
               </div>
-              
+
               <div className="flex flex-wrap items-center gap-x-12 gap-y-6 pt-10 border-t border-slate-100">
                 <div className="flex flex-col">
                   <span className="text-2xl font-bold text-primary">2,400+</span>
@@ -59,13 +59,13 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Right Visual: Technical Diagram */}
             <div className="w-full md:w-[45%] relative">
               <div className="aspect-square w-full rounded-3xl bg-surface-container-low flex items-center justify-center p-8 relative overflow-hidden">
                 {/* Abstract Mesh Background */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0254ec 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
-                
+
                 {/* Blockchain Visual */}
                 <div className="relative w-full h-full flex flex-col justify-between py-12">
                   <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
@@ -78,7 +78,7 @@ const Home: React.FC = () => {
                       </linearGradient>
                     </defs>
                   </svg>
-                  
+
                   {/* Node: Farm */}
                   <div className="flex flex-col items-center gap-2 z-10 self-center">
                     <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-500">
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                     </div>
                     <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Farm</span>
                   </div>
-                  
+
                   <div className="flex justify-between w-full px-4">
                     {/* Node: Processor */}
                     <div className="flex flex-col items-center gap-2 z-10">
@@ -103,7 +103,7 @@ const Home: React.FC = () => {
                       <span className="text-xs font-bold uppercase tracking-widest text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Retailer</span>
                     </div>
                   </div>
-                  
+
                   {/* Node: Consumer */}
                   <div className="flex flex-col items-center gap-2 z-10 self-center">
                     <div className="w-20 h-20 rounded-full bg-primary-container shadow-xl flex items-center justify-center border-4 border-white">
@@ -111,14 +111,14 @@ const Home: React.FC = () => {
                     </div>
                     <span className="text-xs font-bold uppercase tracking-widest text-primary bg-primary-fixed px-3 py-1 rounded-full">Consumer</span>
                   </div>
-                  
+
                   {/* Center: The Chain */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-inner flex items-center justify-center text-primary-container border border-slate-100">
                     <span className="material-symbols-outlined animate-pulse">link</span>
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating Badge */}
               <div className="absolute -bottom-6 -left-6 bg-white/70 backdrop-blur-[20px] p-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/40">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
           </div>
         </section>
 
@@ -141,12 +141,12 @@ const Home: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Transparent Trust, Every Step of the Way</h2>
               <p className="text-on-surface-variant text-lg leading-relaxed">Each product event is recorded as an immutable transaction on the Polygon blockchain</p>
             </div>
-            
+
             {/* 5-Column Layout */}
             <div className="relative">
               {/* Connecting Line */}
               <div className="absolute top-5 left-0 w-full h-1 hidden md:block opacity-30" style={{ background: 'repeating-linear-gradient(90deg, #c3c5d8, #c3c5d8 4px, transparent 4px, transparent 8px)' }}></div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative z-10">
                 {/* Steps */}
                 {[
@@ -206,7 +206,7 @@ const Home: React.FC = () => {
         {/* Section 4: Consumer Trust Section */}
         <section className="bg-[#01123F] text-white py-24 md:py-40 overflow-hidden relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
-          
+
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-20 relative z-10">
             <div className="w-full lg:w-1/2">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">Know Exactly What You're Eating</h2>
@@ -217,7 +217,7 @@ const Home: React.FC = () => {
                 </button>
               </Link>
             </div>
-            
+
             {/* Verification Card Mockup */}
             <div className="w-full lg:w-1/2">
               <div className="bg-white text-slate-900 rounded-3xl p-8 shadow-2xl overflow-hidden max-w-lg mx-auto transform hover:rotate-2 transition-transform duration-500">
@@ -231,7 +231,7 @@ const Home: React.FC = () => {
                     <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-full">BLOCKCHAIN PROOF</span>
                   </div>
                 </div>
-                
+
                 <div className="space-y-6 mb-8 relative">
                   <div className="absolute left-3 top-3 bottom-3 w-0.5 bg-slate-100"></div>
                   <div className="flex items-center gap-4 relative">
@@ -255,7 +255,7 @@ const Home: React.FC = () => {
                     <p className="text-xs font-bold text-slate-400">+ 3 More Stages Logged</p>
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 py-6 border-t border-slate-100 mb-6">
                   <div>
                     <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Farmer</p>
@@ -266,7 +266,7 @@ const Home: React.FC = () => {
                     <p className="text-sm font-bold">100% Hydroponic</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl group cursor-pointer" onClick={() => navigate('/verify?batch=CT-2024-0871')}>
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-blue-600">visibility</span>
