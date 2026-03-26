@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
@@ -39,6 +39,15 @@ export default function About() {
     { name: 'Chainlink', logo: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/white/link.png' },
     { name: 'IPFS', logo: 'https://raw.githubusercontent.com/ipfs/logo/master/vector/ipfs-logo-vector-black.svg' },
   ];
+
+  useEffect(() => {
+    if (window.location.hash === '#team') {
+      const element = document.getElementById('team');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100">

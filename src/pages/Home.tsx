@@ -287,7 +287,7 @@ const Home: React.FC = () => {
               <p className="text-lg text-on-surface-variant leading-relaxed mb-8">
                 Learn more about KETJU's mission to reshape the global food supply chain through transparency and decentralization. Meet the team of engineers and designers behind the tech.
               </p>
-              <Link to="/about">
+              <Link to="/about#team">
                 <button className="bg-surface-container text-primary font-black px-8 py-4 rounded-full hover:bg-primary-container/10 transition-all flex items-center gap-2">
                   Meet the Team <span className="material-symbols-outlined">group</span>
                 </button>
