@@ -14,19 +14,19 @@ export default function About() {
       linkedin: '#'
     },
     {
-      name: 'Aryan Sharma',
+      name: 'Sushant',
       role: 'Full Stack Developer',
       bio: 'Expert in high-performance React architectures and decentralized storage.',
-      avatar: 'AS',
+      avatar: 'S',
       github: '#',
       x: '#',
       linkedin: '#'
     },
     {
-      name: 'Priya Verma',
+      name: 'Kaushik Chaurasiya',
       role: 'UI/UX Designer',
       bio: 'Designing intuitive interfaces for complex supply chain ecosystems.',
-      avatar: 'PV',
+      avatar: 'KC',
       github: '#',
       x: '#',
       linkedin: '#'
