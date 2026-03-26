@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, Role } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
@@ -22,20 +22,6 @@ export default function Signup() {
   const [selectedRole, setSelectedRole] = useState<RoleOption | null>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [recentEmails, setRecentEmails] = useState<string[]>([]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('ketju_recent_emails');
-    if (stored) {
-      try { setRecentEmails(JSON.parse(stored)); } catch { /* ignore */ }
-    }
-  }, []);
-
-  const saveRecentEmail = (email: string) => {
-    const updated = [email, ...recentEmails.filter(e => e !== email)].slice(0, 3);
-    setRecentEmails(updated);
-    localStorage.setItem('ketju_recent_emails', JSON.stringify(updated));
-  };
 
   const validate = () => {
     if (!name.trim()) return 'Full name is required.';
@@ -59,7 +45,6 @@ export default function Signup() {
     setError(''); setLoading(true);
     try {
       await signup({ name, email, password, role: selectedRole! });
-      saveRecentEmail(email);
       const paths: Record<RoleOption, string> = {
         farmer: '/farmer', processor: '/processor',
         distributor: '/distributor', retailer: '/retailer',
@@ -71,6 +56,7 @@ export default function Signup() {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen bg-surface flex flex-col font-sans">
@@ -117,25 +103,6 @@ export default function Signup() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Recent Account Suggestion */}
-              {recentEmails.length > 0 && (
-                <div className="p-3 bg-surface-container-low rounded-xl border border-primary-container/10 flex flex-col gap-2">
-                  <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest pl-1">Sign up with recent email?</p>
-                  <div className="flex flex-wrap gap-2">
-                    {recentEmails.map(re => (
-                      <button
-                        key={re}
-                        type="button"
-                        onClick={() => setEmail(re)}
-                        className="px-3 py-1.5 rounded-full bg-white border border-slate-100 text-xs font-bold text-on-surface-variant hover:border-primary-container/30 transition-all shadow-sm"
-                      >
-                        {re}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               <div className="space-y-2">
                 <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Full Name</label>
                 <input
@@ -147,7 +114,7 @@ export default function Signup() {
                 />
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-2 relative">
                 <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Email Address</label>
                 <input
                   type="email"
