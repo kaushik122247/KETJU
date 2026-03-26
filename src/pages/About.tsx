@@ -84,7 +84,7 @@ export default function About() {
               {[...partners, ...partners].map((partner, index) => (
                 <div key={`${partner.name}-${index}`} className="flex flex-col items-center gap-6 transition-all duration-300 opacity-40 hover:opacity-100 cursor-default group px-6">
                   <div className="relative h-12 md:h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-125">
-                    <img src={partner.logo} alt={partner.name} className="h-full w-auto object-contain brightness-200 contrast-125" />
+                    <img src={partner.logo} alt={partner.name} className={`h-full w-auto object-contain brightness-200 contrast-125 ${partner.name === 'IPFS' ? 'scale-[1.5]' : ''}`} />
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 transition-colors duration-300 group-hover:text-white group-hover:scale-110">{partner.name}</span>
                 </div>
