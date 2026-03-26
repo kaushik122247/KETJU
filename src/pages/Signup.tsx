@@ -78,24 +78,24 @@ export default function Signup() {
       
       <main className="flex-1 flex overflow-hidden mt-[72px]">
         {/* Left Panel - Hidden on Mobile */}
-        <div className="hidden lg:flex lg:w-1/2 bg-[#01123F] flex-col justify-center p-20 text-white relative">
-          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }}></div>
+        <div className="hidden lg:flex lg:w-1/2 bg-slate-50 flex-col justify-center p-20 text-slate-900 relative border-r border-slate-200/60">
+          <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0050e3 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }}></div>
           
           <div className="relative z-10">
-            <h2 className="text-5xl font-black leading-tight mb-8 tracking-tight">
-              Join the future of <span className="text-primary-container">food transparency.</span>
+            <h2 className="text-5xl font-black leading-tight mb-8 tracking-tight text-slate-900">
+              Join the future of <span className="text-blue-600">food transparency.</span>
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed mb-12 max-w-lg">
-              Every stake holder from farmer to retailer plays a critical role in building a trust-based ecosystem on the Polygon blockchain.
+            <p className="text-slate-500 text-lg leading-relaxed mb-12 max-w-lg font-medium">
+              Every stakeholder from farmer to retailer plays a critical role in building a trust-based ecosystem on the Polygon blockchain.
             </p>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-emerald-400">check_circle</span>
-                <span className="text-white/80 font-medium">Verified Producer Network</span>
+            <div className="flex flex-col gap-5">
+              <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                <span className="material-symbols-outlined text-emerald-500 text-2xl">check_circle</span>
+                <span className="text-slate-700 font-bold">Verified Producer Network</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-emerald-400">check_circle</span>
-                <span className="text-white/80 font-medium">Immutable Audit Logs</span>
+              <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                <span className="material-symbols-outlined text-emerald-500 text-2xl">check_circle</span>
+                <span className="text-slate-700 font-bold">Immutable Audit Logs</span>
               </div>
             </div>
           </div>

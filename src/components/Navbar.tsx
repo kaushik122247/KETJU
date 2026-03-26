@@ -70,12 +70,12 @@ export default function Navbar({ role }: NavbarProps) {
   const navLinks = cfg ? [{ href: '/', label: 'Home' }, ...cfg.links] : publicLinks;
 
   return (
-    <header className="fixed top-0 w-full z-[100] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 flex justify-between items-center h-[72px] px-8 shadow-sm">
+    <header className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-200/50 flex justify-between items-center h-[72px] px-8 shadow-sm">
       {/* Logo */}
       <div className="flex-1 flex justify-start">
         <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>account_tree</span>
-          <span className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">KETJU</span>
+          <span className="text-2xl font-black tracking-tighter text-slate-900">KETJU</span>
         </Link>
       </div>
 

@@ -66,12 +66,12 @@ export default function Login() {
       
       <main className="flex-1 flex overflow-hidden mt-[72px]">
         {/* Left Panel - Hidden on Mobile */}
-        <div className="hidden lg:flex lg:w-1/2 bg-[#01123F] flex-col justify-center p-20 text-white relative">
-          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }}></div>
+        <div className="hidden lg:flex lg:w-1/2 bg-slate-50 flex-col justify-center p-20 text-slate-900 relative border-r border-slate-200/60">
+          <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0050e3 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }}></div>
           
           <div className="relative z-10">
-            <h2 className="text-5xl font-black leading-tight mb-8 tracking-tight">
-              Blockchain-grade trust for the <span className="text-primary-container">entire supply chain.</span>
+            <h2 className="text-5xl font-black leading-tight mb-8 tracking-tight text-slate-900">
+              Blockchain-grade trust for the <span className="text-blue-600">entire supply chain.</span>
             </h2>
             <div className="space-y-6">
               {[
@@ -79,11 +79,11 @@ export default function Login() {
                 { icon: 'qr_code_2', text: 'Instant consumer verification via QR' },
                 { icon: 'verified_user', text: 'Soulbound NFT certifications for farmers' },
               ].map(f => (
-                <div key={f.text} className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-primary-container transition-colors">
-                    <span className="material-symbols-outlined text-xl">{f.icon}</span>
+                <div key={f.text} className="flex items-center gap-4 group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <span className="material-symbols-outlined text-2xl">{f.icon}</span>
                   </div>
-                  <span className="text-white/80 text-lg font-medium">{f.text}</span>
+                  <span className="text-slate-700 text-lg font-bold">{f.text}</span>
                 </div>
               ))}
             </div>

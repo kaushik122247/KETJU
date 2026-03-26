@@ -67,17 +67,17 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             ))}
           </nav>
 
-          <div className="p-4 bg-inverse-surface rounded-2xl">
-            <p className="text-[10px] uppercase font-bold tracking-widest text-on-primary-container/60 mb-1">Account</p>
+          <div className="p-4 bg-slate-100 rounded-2xl border border-slate-200/60">
+            <p className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-1">Account</p>
             <div className="flex items-center gap-2 mb-2">
-              <div className={`w-2 h-2 rounded-full animate-pulse bg-primary-container`} />
-              <code className="text-xs text-on-primary font-mono truncate w-full" title={user?.walletAddress}>
+              <div className={`w-2.5 h-2.5 rounded-full bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.4)]`} />
+              <code className="text-xs text-slate-900 font-mono truncate w-full font-bold" title={user?.walletAddress}>
                 {user?.walletAddress ?? '0x...'}
               </code>
             </div>
-            <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-1">
-              <span className={`material-symbols-outlined text-xs`}>verified_user</span>
-              <span className="text-[10px] font-bold uppercase truncate">{user?.role} verified</span>
+            <div className="mt-3 pt-3 border-t border-slate-200 flex items-center gap-1 text-blue-600">
+              <span className={`material-symbols-outlined text-xs font-bold`}>verified_user</span>
+              <span className="text-[10px] font-black uppercase truncate">{user?.role} verified</span>
             </div>
           </div>
           

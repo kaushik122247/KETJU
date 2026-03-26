@@ -306,46 +306,46 @@ const Home: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-950 text-white w-full pt-24 pb-12">
+      <footer className="bg-slate-50 text-slate-900 w-full pt-24 pb-12 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-1">
-            <div className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary-container">account_tree</span> KETJU
+            <div className="text-2xl font-black text-slate-900 mb-4 flex items-center gap-2">
+              <span className="material-symbols-outlined text-blue-600" style={{ fontVariationSettings: "'FILL' 1" }}>account_tree</span> KETJU
             </div>
-            <p className="text-slate-400 text-sm font-light leading-relaxed max-w-xs">Building the world's most transparent and secure food tracking network, one block at a time.</p>
+            <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-xs">Building the world's most transparent and secure food tracking network, one block at a time.</p>
           </div>
           <div>
-            <h5 className="text-white font-bold mb-6">Product</h5>
+            <h5 className="text-slate-900 font-bold mb-6">Product</h5>
             <ul className="space-y-4">
-              <li><Link to="/log-event" className="text-slate-400 hover:text-white transition-colors text-sm font-light">Traceability</Link></li>
-              <li><Link to="/verify" className="text-slate-400 hover:text-white transition-colors text-sm font-light">Verification</Link></li>
-              <li><Link to="/farmer" className="text-slate-400 hover:text-white transition-colors text-sm font-light">Farmers Portal</Link></li>
+              <li><Link to="/log-event" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Traceability</Link></li>
+              <li><Link to="/verify" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Verification</Link></li>
+              <li><Link to="/farmer" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Farmers Portal</Link></li>
             </ul>
           </div>
           <div>
-            <h5 className="text-white font-bold mb-6">Company</h5>
+            <h5 className="text-slate-900 font-bold mb-6">Company</h5>
             <ul className="space-y-4">
-              <li><Link to="#" className="text-slate-400 hover:text-white transition-colors text-sm font-light">About Us</Link></li>
-              <li><Link to="#" className="text-slate-400 hover:text-white transition-colors text-sm font-light">Our Mission</Link></li>
-              <li><Link to="#" className="text-slate-400 hover:text-white transition-colors text-sm font-light">Contact</Link></li>
+              <li><Link to="/about" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">About Us</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Our Mission</Link></li>
+              <li><Link to="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Contact</Link></li>
             </ul>
           </div>
           <div>
-            <h5 className="text-white font-bold mb-6">Subscribe to Updates</h5>
+            <h5 className="text-slate-900 font-bold mb-6">Subscribe to Updates</h5>
             <div className="flex gap-2">
-              <input className="bg-slate-900 border-none rounded-full px-4 py-2 text-sm w-full focus:ring-1 focus:ring-primary-container outline-none" placeholder="Email address" type="email" />
-              <button className="bg-primary-container text-white p-2 rounded-full flex items-center justify-center border-none">
+              <input className="bg-white border border-slate-200 rounded-full px-4 py-2 text-sm w-full focus:ring-2 focus:ring-blue-100 outline-none" placeholder="Email address" type="email" />
+              <button className="bg-blue-600 text-white p-2 rounded-full flex items-center justify-center border-none shadow-lg shadow-blue-600/20">
                 <span className="material-symbols-outlined">send</span>
               </button>
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-8 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-xs font-light">© 2024 KETJU. Built on Polygon Blockchain.</p>
+        <div className="max-w-7xl mx-auto px-8 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-slate-400 text-xs font-bold">© 2024 KETJU. Built on Polygon Blockchain.</p>
           <div className="flex gap-8">
-            <Link to="#" className="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</Link>
-            <Link to="#" className="text-slate-500 hover:text-white text-xs transition-colors">Cookies</Link>
+            <Link to="#" className="text-slate-400 hover:text-blue-600 text-xs transition-colors font-bold">Privacy Policy</Link>
+            <Link to="#" className="text-slate-400 hover:text-blue-600 text-xs transition-colors font-bold">Terms of Service</Link>
+            <Link to="#" className="text-slate-400 hover:text-blue-600 text-xs transition-colors font-bold">Cookies</Link>
           </div>
         </div>
       </footer>
