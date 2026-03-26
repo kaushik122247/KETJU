@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import TopNavBar from '../components/TopNavBar';
+import Navbar from '../components/Navbar';
 
 const Login = () => {
   const [selectedRole, setSelectedRole] = useState('farmer');
@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-surface flex flex-col font-sans">
-      <TopNavBar role="public" />
+      <Navbar />
       
       <main className="flex-1 flex items-center justify-center p-6 mt-[72px]">
         {/* Background Decorative Elements */}

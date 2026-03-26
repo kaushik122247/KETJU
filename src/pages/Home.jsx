@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TopNavBar from '../components/TopNavBar';
+import Navbar from '../components/Navbar';
 
 function Home() {
   return (
     <div className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface">
-      <TopNavBar role="public" />
+      <Navbar />
       
       <main>
         {/* Section 1: Hero Section */}
