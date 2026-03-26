@@ -19,6 +19,18 @@ export default function QRScanner() {
     if (stored) {
       try { setRecentScans(JSON.parse(stored)); } catch { /* ignore */ }
     }
+
+    // Request camera permissions on mount
+    const requestCamera = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        // We just need the permission, so we can stop the tracks immediately if we don't have a video element yet
+        stream.getTracks().forEach(track => track.stop());
+      } catch (err) {
+        console.error('Camera permission denied:', err);
+      }
+    };
+    requestCamera();
   }, []);
 
   const saveAndNavigate = (batchId: string) => {
@@ -50,7 +62,7 @@ export default function QRScanner() {
       </header>
 
       {/* Hero Scanner */}
-      <section className="relative h-[480px] flex flex-col items-center justify-center overflow-hidden bg-white">
+      <section className="relative h-[480px] flex flex-col items-center justify-center overflow-hidden bg-slate-100">
         {/* Decorative background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100/30 blur-[120px] rounded-full pointer-events-none" />
         
@@ -61,12 +73,12 @@ export default function QRScanner() {
 
         {/* Viewfinder */}
         <div className="relative z-10 w-[240px] h-[240px]">
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-white rounded-tl-xl" />
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-white rounded-tr-xl" />
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-white rounded-bl-xl" />
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-white rounded-br-xl" />
-          <div className="absolute inset-2 bg-white/[0.03] backdrop-blur-[4px] rounded-lg overflow-hidden flex items-center justify-center border border-white/5">
-            <span className="material-symbols-outlined text-white/20 text-6xl">qr_code_2</span>
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-blue-600 rounded-tl-xl z-20" />
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-blue-600 rounded-tr-xl z-20" />
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-blue-600 rounded-bl-xl z-20" />
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-blue-600 rounded-br-xl z-20" />
+          <div className="absolute inset-0 bg-white shadow-2xl rounded-2xl overflow-hidden flex items-center justify-center border border-slate-200">
+            <span className="material-symbols-outlined text-slate-200 text-6xl">qr_code_2</span>
             {/* Scanner line */}
             <div className="scanner-line absolute" style={{ animation: 'scan 2.5s infinite linear', background: '#0050e3', boxShadow: '0 0 20px #0050e3' }} />
           </div>
