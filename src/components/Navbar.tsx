@@ -59,7 +59,7 @@ const roleConfig: Record<string, { label: string; color: string; links: { href: 
 const publicLinks = [
   { href: '/', label: 'Home' },
   { href: '/verify', label: 'Verify Product' },
-  { href: '/scanner', label: 'Scan QR' },
+  { href: '/about', label: 'About Us' },
 ];
 
 export default function Navbar({ role }: NavbarProps) {

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
-function Home() {
+const Home: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface">
       <Navbar />
@@ -28,14 +29,14 @@ function Home() {
               </p>
               
               <div className="flex flex-wrap gap-4 mb-16">
-                <Link to="/verify" className="inline-block">
-                  <button className="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer">
+                <Link to="/scanner" className="inline-block">
+                  <button className="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer border-none">
                     <span className="material-symbols-outlined">qr_code_scanner</span>
                     Scan a QR Code
                   </button>
                 </Link>
                 <Link to="/register" className="inline-block">
-                  <button className="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all cursor-pointer">
+                  <button className="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all cursor-pointer bg-transparent">
                     Register Your Farm
                   </button>
                 </Link>
@@ -211,7 +212,7 @@ function Home() {
               <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">Know Exactly What You're Eating</h2>
               <p className="text-xl text-slate-300 leading-relaxed mb-12">Scan the QR code on any KETJU-verified product to see the full journey — from the farm where it was grown to the store where you bought it.</p>
               <Link to="/verify" className="inline-block">
-                <button className="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/10 transition-all active:scale-95 cursor-pointer">
+                <button className="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/10 transition-all active:scale-95 cursor-pointer border-none outline-none">
                   Try the Verifier
                 </button>
               </Link>
@@ -266,13 +267,38 @@ function Home() {
                   </div>
                 </div>
                 
-                <a className="flex items-center justify-between bg-slate-50 p-4 rounded-xl group" href="#polygon">
+                <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl group cursor-pointer" onClick={() => navigate('/verify?batch=CT-2024-0871')}>
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-blue-600">visibility</span>
                     <span className="text-sm font-bold">View Full Chain on Polygon</span>
                   </div>
                   <span className="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 5: About Us Teaser Section */}
+        <section className="py-24 px-6 md:py-32 bg-white">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-4xl font-black mb-6 tracking-tight text-on-surface">Blockchain-grade trust for everyone.</h2>
+              <p className="text-lg text-on-surface-variant leading-relaxed mb-8">
+                Learn more about KETJU's mission to reshape the global food supply chain through transparency and decentralization. Meet the team of engineers and designers behind the tech.
+              </p>
+              <Link to="/about">
+                <button className="bg-surface-container text-primary font-black px-8 py-4 rounded-full hover:bg-primary-container/10 transition-all flex items-center gap-2">
+                  Meet the Team <span className="material-symbols-outlined">group</span>
+                </button>
+              </Link>
+            </div>
+            <div className="w-full md:w-1/2 grid grid-cols-2 gap-4">
+              <div className="aspect-square bg-emerald-50 rounded-2xl flex items-center justify-center">
+                <span className="material-symbols-outlined text-emerald-600 text-5xl">diversity_3</span>
+              </div>
+              <div className="aspect-square bg-blue-50 rounded-2xl flex items-center justify-center">
+                <span className="material-symbols-outlined text-blue-600 text-5xl">engineering</span>
               </div>
             </div>
           </div>
@@ -308,7 +334,7 @@ function Home() {
             <h5 className="text-white font-bold mb-6">Subscribe to Updates</h5>
             <div className="flex gap-2">
               <input className="bg-slate-900 border-none rounded-full px-4 py-2 text-sm w-full focus:ring-1 focus:ring-primary-container outline-none" placeholder="Email address" type="email" />
-              <button className="bg-primary-container text-white p-2 rounded-full flex items-center justify-center">
+              <button className="bg-primary-container text-white p-2 rounded-full flex items-center justify-center border-none">
                 <span className="material-symbols-outlined">send</span>
               </button>
             </div>

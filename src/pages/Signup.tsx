@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, Role } from '../context/AuthContext';
+import Navbar from '../components/Navbar';
 
 type RoleOption = Exclude<Role, null | 'admin'>;
 
@@ -21,11 +22,32 @@ export default function Signup() {
   const [selectedRole, setSelectedRole] = useState<RoleOption | null>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [recentEmails, setRecentEmails] = useState<string[]>([]);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('ketju_recent_emails');
+    if (stored) {
+      try { setRecentEmails(JSON.parse(stored)); } catch { /* ignore */ }
+    }
+  }, []);
+
+  const saveRecentEmail = (email: string) => {
+    const updated = [email, ...recentEmails.filter(e => e !== email)].slice(0, 3);
+    setRecentEmails(updated);
+    localStorage.setItem('ketju_recent_emails', JSON.stringify(updated));
+  };
 
   const validate = () => {
     if (!name.trim()) return 'Full name is required.';
     if (!email.includes('@')) return 'Enter a valid email address.';
-    if (password.length < 4) return 'Password must be at least 4 characters.';
+    
+    if (password.length < 6) return 'Password must be at least 6 characters.';
+    
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+    if (!specialCharRegex.test(password)) {
+      return 'Please add a special character to create a stronger password.';
+    }
+    
     if (!selectedRole) return 'Please select your supply chain role.';
     return null;
   };
@@ -37,6 +59,7 @@ export default function Signup() {
     setError(''); setLoading(true);
     try {
       await signup({ name, email, password, role: selectedRole! });
+      saveRecentEmail(email);
       const paths: Record<RoleOption, string> = {
         farmer: '/farmer', processor: '/processor',
         distributor: '/distributor', retailer: '/retailer',
@@ -50,114 +73,148 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-surface flex">
-      {/* Left Panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#01123F] to-primary flex-col justify-between p-12 text-white">
-        <Link to="/" className="text-xl font-black flex items-center gap-2">
-          <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>account_tree</span>
-          KETJU
-        </Link>
-        <div>
-          <h2 className="text-4xl font-extrabold leading-tight mb-6">Join the transparent supply chain revolution.</h2>
-          <p className="text-white/70 text-lg leading-relaxed">
-            Every stakeholder from farmer to retailer plays a role in building consumer trust through blockchain transparency.
-          </p>
-        </div>
-        <p className="text-white/40 text-xs">© 2024 KETJU · Polygon Blockchain</p>
-      </div>
-
-      {/* Right Panel */}
-      <div className="flex-1 flex items-center justify-center p-8 overflow-y-auto">
-        <div className="w-full max-w-md py-8">
-          <Link to="/" className="lg:hidden text-xl font-black text-primary flex items-center gap-2 mb-8">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>account_tree</span>
-            KETJU
-          </Link>
-
-          <h1 className="text-3xl font-extrabold text-on-surface mb-2">Create your account</h1>
-          <p className="text-on-surface-variant mb-8">Get started in under 2 minutes.</p>
-
-          {error && (
-            <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl mb-6 text-red-700 text-sm">
-              <span className="material-symbols-outlined text-sm">error</span>
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-bold text-on-surface-variant mb-2 uppercase tracking-wide">Full Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                placeholder="Rajesh Kumar"
-                className="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface placeholder:text-outline/50 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-bold text-on-surface-variant mb-2 uppercase tracking-wide">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface placeholder:text-outline/50 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-bold text-on-surface-variant mb-2 uppercase tracking-wide">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                placeholder="Min. 4 characters"
-                className="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface placeholder:text-outline/50 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-              />
-            </div>
-
-            {/* Role Selection */}
-            <div>
-              <label className="block text-sm font-bold text-on-surface-variant mb-3 uppercase tracking-wide">Your Role *</label>
-              <div className="grid grid-cols-2 gap-3">
-                {ROLES.map(r => (
-                  <button
-                    key={r.value}
-                    type="button"
-                    onClick={() => setSelectedRole(r.value)}
-                    className={`p-4 rounded-xl border-2 text-left transition-all ${
-                      selectedRole === r.value
-                        ? 'border-primary-container bg-primary/5'
-                        : 'border-outline-variant/20 bg-surface-container-low hover:border-primary/30'
-                    }`}
-                  >
-                    <span className={`material-symbols-outlined text-xl mb-2 block ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface-variant'}`}>
-                      {r.icon}
-                    </span>
-                    <p className={`font-bold text-sm ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface'}`}>{r.label}</p>
-                    <p className="text-xs text-on-surface-variant mt-1 leading-snug">{r.description}</p>
-                  </button>
-                ))}
+    <div className="min-h-screen bg-surface flex flex-col font-sans">
+      <Navbar />
+      
+      <main className="flex-1 flex overflow-hidden mt-[72px]">
+        {/* Left Panel - Hidden on Mobile */}
+        <div className="hidden lg:flex lg:w-1/2 bg-[#01123F] flex-col justify-center p-20 text-white relative">
+          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }}></div>
+          
+          <div className="relative z-10">
+            <h2 className="text-5xl font-black leading-tight mb-8 tracking-tight">
+              Join the future of <span className="text-primary-container">food transparency.</span>
+            </h2>
+            <p className="text-white/70 text-lg leading-relaxed mb-12 max-w-lg">
+              Every stake holder from farmer to retailer plays a critical role in building a trust-based ecosystem on the Polygon blockchain.
+            </p>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-emerald-400">check_circle</span>
+                <span className="text-white/80 font-medium">Verified Producer Network</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-emerald-400">check_circle</span>
+                <span className="text-white/80 font-medium">Immutable Audit Logs</span>
               </div>
             </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-4 bg-primary-container text-on-primary rounded-full font-bold text-sm shadow-lg shadow-primary/20 hover:bg-primary active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-2"
-            >
-              {loading ? (
-                <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> Creating account…</>
-              ) : 'Create Account'}
-            </button>
-          </form>
-
-          <p className="text-center text-sm text-on-surface-variant mt-6">
-            Already have an account?{' '}
-            <Link to="/login" className="text-primary font-bold hover:underline">Sign in</Link>
-          </p>
+          </div>
         </div>
-      </div>
+
+        {/* Right Panel - Signup Form */}
+        <div className="flex-1 flex items-center justify-center p-8 bg-white overflow-y-auto">
+          <div className="w-full max-w-md py-12">
+            <div className="mb-8 text-center lg:text-left">
+              <h1 className="text-4xl font-black text-on-surface mb-3 tracking-tight">Create your account</h1>
+              <p className="text-on-surface-variant text-lg">Get started in under 60 seconds.</p>
+            </div>
+
+            {error && (
+              <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-xl mb-6 text-red-700 text-sm font-bold animate-shake">
+                <span className="material-symbols-outlined text-sm">error</span>
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Recent Account Suggestion */}
+              {recentEmails.length > 0 && (
+                <div className="p-3 bg-surface-container-low rounded-xl border border-primary-container/10 flex flex-col gap-2">
+                  <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest pl-1">Sign up with recent email?</p>
+                  <div className="flex flex-wrap gap-2">
+                    {recentEmails.map(re => (
+                      <button
+                        key={re}
+                        type="button"
+                        onClick={() => setEmail(re)}
+                        className="px-3 py-1.5 rounded-full bg-white border border-slate-100 text-xs font-bold text-on-surface-variant hover:border-primary-container/30 transition-all shadow-sm"
+                      >
+                        {re}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="space-y-2">
+                <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Full Name</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  placeholder="Enter your name"
+                  className="w-full bg-surface-container-low border-2 border-transparent rounded-2xl p-4 text-on-surface focus:outline-none focus:border-primary-container/30 focus:ring-4 focus:ring-primary-container/5 transition-all text-lg"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Email Address</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="you@company.com"
+                  className="w-full bg-surface-container-low border-2 border-transparent rounded-2xl p-4 text-on-surface focus:outline-none focus:border-primary-container/30 focus:ring-4 focus:ring-primary-container/5 transition-all text-lg"
+                  autoComplete="email"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Password</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  placeholder="6+ characters"
+                  className="w-full bg-surface-container-low border-2 border-transparent rounded-2xl p-4 text-on-surface focus:outline-none focus:border-primary-container/30 focus:ring-4 focus:ring-primary-container/5 transition-all text-lg"
+                />
+              </div>
+
+              {/* Role Selection */}
+              <div className="space-y-3 pb-4">
+                <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Your Network Role *</label>
+                <div className="grid grid-cols-2 gap-3">
+                  {ROLES.map(r => (
+                    <button
+                      key={r.value}
+                      type="button"
+                      onClick={() => setSelectedRole(r.value)}
+                      className={`p-4 rounded-2xl border-2 text-left transition-all ${
+                        selectedRole === r.value
+                          ? 'border-primary-container bg-primary/5 shadow-inner'
+                          : 'border-outline-variant/5 bg-surface-container-low hover:border-primary/20'
+                      }`}
+                    >
+                      <span className={`material-symbols-outlined text-2xl mb-2 block ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface-variant'}`}>
+                        {r.icon}
+                      </span>
+                      <p className={`font-black text-sm ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface'}`}>{r.label}</p>
+                      <p className="text-[10px] text-on-surface-variant mt-1 leading-tight font-medium">{r.description}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-4 bg-primary-container text-on-primary rounded-full font-black text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-60 flex items-center justify-center gap-3"
+              >
+                {loading ? (
+                  <><div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin" /> Creating Account…</>
+                ) : (
+                  <>Create Account <span className="material-symbols-outlined">person_add</span></>
+                )}
+              </button>
+            </form>
+
+            <p className="text-center text-sm text-on-surface-variant mt-10 font-medium">
+              Already part of the chain?{' '}
+              <Link to="/login" className="text-primary font-black hover:underline decoration-2 underline-offset-4">Sign in here</Link>
+            </p>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

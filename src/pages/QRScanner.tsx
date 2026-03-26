@@ -156,7 +156,7 @@ export default function QRScanner() {
 
       {/* Bottom Nav */}
       <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-white/70 backdrop-blur-xl z-50 rounded-t-[32px] shadow-[0_-8px_48px_rgba(27,26,37,0.06)]">
-        <button onClick={() => navigate('/scanner')} className="flex flex-col items-center justify-center bg-primary text-white rounded-full px-6 py-2 transition-all">
+        <button className="flex flex-col items-center justify-center bg-primary text-white rounded-full px-6 py-2 transition-all">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>qr_code_scanner</span>
           <span className="text-[12px] font-bold uppercase tracking-wider mt-1">Scanner</span>
         </button>
