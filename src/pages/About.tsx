@@ -4,113 +4,211 @@ import { Link } from 'react-router-dom';
 
 export default function About() {
   const team = [
-    { name: 'Himanshu Rawat', role: 'Lead Blockchain Architect', bio: 'Specializing in Polygon L2 scaling and secure smart contract design.', avatar: 'HR' },
-    { name: 'Aryan Sharma', role: 'Full Stack Developer', bio: 'Expert in high-performance React architectures and decentralized storage.', avatar: 'AS' },
-    { name: 'Priya Verma', role: 'UI/UX Designer', bio: 'Designing intuitive interfaces for complex supply chain ecosystems.', avatar: 'PV' },
+    { 
+      name: 'Himanshu Rawat', 
+      role: 'Lead Blockchain Architect', 
+      bio: 'Specializing in Polygon L2 scaling and secure smart contract design.', 
+      avatar: 'HR',
+      github: '#',
+      x: '#',
+      linkedin: '#'
+    },
+    { 
+      name: 'Aryan Sharma', 
+      role: 'Full Stack Developer', 
+      bio: 'Expert in high-performance React architectures and decentralized storage.', 
+      avatar: 'AS',
+      github: '#',
+      x: '#',
+      linkedin: '#'
+    },
+    { 
+      name: 'Priya Verma', 
+      role: 'UI/UX Designer', 
+      bio: 'Designing intuitive interfaces for complex supply chain ecosystems.', 
+      avatar: 'PV',
+      github: '#',
+      x: '#',
+      linkedin: '#'
+    },
+  ];
+
+  const partners = [
+    { name: 'Polygon', logo: 'https://cryptologos.cc/logos/polygon-matic-logo.png' },
+    { name: 'IPFS', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png' },
+    { name: 'Ethereum', logo: 'https://cryptologos.cc/logos/ethereum-eth-logo.png' },
+    { name: 'Chainlink', logo: 'https://cryptologos.cc/logos/chainlink-link-logo.png' },
   ];
 
   return (
-    <div className="min-h-screen bg-surface font-sans text-on-surface">
+    <div className="min-h-screen bg-[#0a0a0b] font-sans text-white selection:bg-blue-500/30">
       <Navbar />
-      <div className="h-[72px]" />
+      
+      <main className="relative overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[20%] right-[-5%] w-[30%] h-[30%] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <main>
         {/* Hero Section */}
-        <section className="bg-[#01123F] text-white py-24 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }}></div>
-          <div className="max-w-7xl mx-auto text-center relative z-10">
-            <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">Our Mission is <span className="text-primary-container">Transparency.</span></h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              KETJU was born out of a simple question: "Where does my food actually come from?" 
-              We leverage the power of blockchain to provide an immutable record of truth for global supply chains.
+        <section className="pt-32 pb-20 px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-400 mb-6 animate-fade-in">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              Building the future of supply chains
+            </div>
+            <h1 className="text-6xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 leading-[1.1]">
+              We are building the backbone of global trust.
+            </h1>
+            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+              A high-performance, blockchain-native tooling ecosystem designed to unify and secure the global flow of goods.
             </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="#team" className="px-8 py-3 rounded-lg bg-white text-black font-semibold hover:bg-slate-200 transition-colors">
+                Meet the team
+              </a>
+              <Link to="/verify" className="px-8 py-3 rounded-lg bg-white/5 border border-white/10 font-semibold hover:bg-white/10 transition-colors">
+                Try the Verifier
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Story Section */}
-        <section className="py-24 px-6">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-extrabold mb-6 tracking-tight text-on-surface">Why KETJU?</h2>
-              <p className="text-lg text-on-surface-variant leading-relaxed mb-6">
-                Traditional supply chains are opaque. Records are often siloed, prone to manual errors, and vulnerable to fraud. This lack of transparency undermines consumer trust and makes it difficult to verify organic or fair-trade claims.
-              </p>
-              <p className="text-lg text-on-surface-variant leading-relaxed">
-                By utilizing the **Polygon Blockchain** and **IPFS**, KETJU creates a "Digital Twin" for every physical product batch. From the moment of harvest to the final retail shelf, every hand-off is cryptographically signed and stored forever.
-              </p>
+        {/* Logo Scroll Section */}
+        <section className="py-12 border-y border-white/5 bg-white/[0.02] overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 mb-8">
+            <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Powering secure ecosystems globally</p>
+          </div>
+          <div className="flex relative items-center overflow-hidden">
+            <div className="flex gap-24 items-center animate-scroll whitespace-nowrap opacity-80 transition-opacity duration-500">
+              {/* Double the logos for seamless scroll */}
+              {[...partners, ...partners].map((partner, index) => (
+                <img key={`${partner.name}-${index}`} src={partner.logo} alt={partner.name} className="h-8 md:h-10 object-contain inline-block brightness-110 contrast-125" />
+              ))}
             </div>
-            <div className="bg-surface-container p-12 rounded-[3rem] border border-outline-variant/20 shadow-inner">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 bg-white rounded-2xl shadow-sm">
-                  <span className="material-symbols-outlined text-primary text-3xl mb-2">verified</span>
-                  <p className="font-bold text-sm">Trust</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm">
-                  <span className="material-symbols-outlined text-emerald-600 text-3xl mb-2">eco</span>
-                  <p className="font-bold text-sm">Organic</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm">
-                  <span className="material-symbols-outlined text-amber-600 text-3xl mb-2">account_balance_wallet</span>
-                  <p className="font-bold text-sm">Blockchain</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm">
-                  <span className="material-symbols-outlined text-purple-600 text-3xl mb-2">security</span>
-                  <p className="font-bold text-sm">Immutability</p>
-                </div>
-              </div>
+          </div>
+        </section>
+
+        {/* Mission Section */}
+        <section className="py-32 px-6 relative">
+          <div className="max-w-3xl mx-auto text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+              Transparency isn't a feature. <span className="text-blue-400">It's a standard.</span>
+            </h2>
+            <div className="space-y-6 text-base md:text-lg text-slate-400 leading-relaxed font-light">
+              <p>
+                The global supply chain is broken. Records are siloed, fraud is rampant, and trust is expensive. KETJU solves this by creating a "Digital Twin" for every physical product, recorded immutably on the Polygon blockchain.
+              </p>
+              <p>
+                Our mission is to empower consumers and businesses with instant, verifiable truth. From the farm to the table, every step is cryptographically signed and publicly auditable.
+              </p>
             </div>
           </div>
         </section>
 
         {/* Team Section */}
-        <section className="bg-surface-container-low py-24 px-6">
+        <section id="team" className="py-32 px-6 border-t border-white/5">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-black mb-4 tracking-tight">Meet the Architects</h2>
-              <p className="text-on-surface-variant text-lg">The team building the future of decentralized trust.</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-3xl font-bold mb-16 text-center">Meet the architects</h2>
+            <div className="grid md:grid-cols-3 gap-10">
               {team.map(member => (
-                <div key={member.name} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all group">
-                  <div className="w-16 h-16 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center text-xl font-black mb-6 group-hover:scale-110 transition-transform">
+                <div key={member.name} className="group relative">
+                  <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-600/20 border border-white/10 flex items-center justify-center text-4xl font-bold mb-6 transition-transform duration-500 group-hover:-translate-y-2">
                     {member.avatar}
                   </div>
-                  <h3 className="text-xl font-black mb-1 text-on-surface">{member.name}</h3>
-                  <p className="text-primary font-bold text-sm mb-4 uppercase tracking-wider">{member.role}</p>
-                  <p className="text-on-surface-variant leading-relaxed">{member.bio}</p>
+                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                  <p className="text-blue-400 text-sm font-medium mb-3">{member.role}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-5 font-light">{member.bio}</p>
+                  <div className="flex gap-4">
+                    <a href={member.github} className="text-slate-500 hover:text-white transition-colors">
+                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                    <a href={member.x} className="text-slate-500 hover:text-white transition-colors">
+                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="py-24 px-6 text-center">
-          <h2 className="text-3xl font-black mb-8">Ready to join the chain?</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/signup">
-              <button className="bg-primary-container text-on-primary px-10 py-4 rounded-full font-black text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-all">
-                Create Account
-              </button>
-            </Link>
-            <Link to="/verify">
-              <button className="border-2 border-primary-container text-primary-container px-10 py-4 rounded-full font-black text-lg hover:bg-primary/5 transition-all">
-                Try the Verifier
-              </button>
-            </Link>
+        {/* Join the Chain Section */}
+        <section className="py-32 px-6">
+          <div className="max-w-5xl mx-auto rounded-3xl bg-white/[0.02] border border-white/10 p-10 relative overflow-hidden group">
+            <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="text-2xl font-bold mb-5">Think you'd be a good addition?</h2>
+                <div className="font-mono bg-black/50 p-6 rounded-xl border border-white/5 mb-6 text-xs text-blue-300">
+                  <span className="text-slate-500">// Join the decentralized future</span>
+                  <br />
+                  <span className="text-blue-400">const</span> <span className="text-yellow-200">joinTeam</span> = <span className="text-blue-400">async</span> () =&gt; &#123;
+                  <br />
+                  &nbsp;&nbsp;<span className="text-blue-400">const</span> status = <span className="text-blue-400">await</span> ketju.apply(&#123;
+                  <br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;role: <span className="text-green-300">'Innovator'</span>
+                  <br />
+                  &nbsp;&nbsp;&#125;);
+                  <br />
+                  &nbsp;&nbsp;window.location = <span className="text-green-300">`mailto:$&#123;atob('aGVsbG9Aa2V0anUuaW8=')&#125;`</span>;
+                  <br />
+                  &#125;;
+                </div>
+                <button 
+                  onClick={() => window.location.href = 'mailto:hello@ketju.io'}
+                  className="px-6 py-2.5 rounded-lg bg-white text-black font-semibold hover:bg-slate-200 transition-colors text-sm"
+                >
+                  Send us an email
+                </button>
+              </div>
+              <div className="grid grid-cols-1 gap-3">
+                {[
+                  'Passionate about Polygon L2',
+                  'IPFS & decentralized storage',
+                  'Clean, minimalist UI/UX',
+                  'Based in the future'
+                ].map(item => (
+                  <div key={item} className="flex items-center gap-3 text-slate-400 text-sm">
+                    <span className="w-1 h-1 rounded-full bg-blue-500" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-32 px-6 text-center relative overflow-hidden">
+          <div className="absolute bottom-[-50%] left-1/2 -translate-x-1/2 w-full h-[150%] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none" />
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 tracking-tight">Ready to secure the chain?</h2>
+            <div className="flex flex-wrap justify-center gap-5">
+              <Link to="/signup" className="px-10 py-4 rounded-xl bg-white text-black font-bold text-lg hover:bg-slate-200 transition-transform hover:scale-[1.02]">
+                Get Started
+              </Link>
+              <Link to="/verify" className="px-10 py-4 rounded-xl bg-white/5 border border-white/10 font-bold text-lg hover:bg-white/10 transition-transform hover:scale-[1.02]">
+                Try Verifier
+              </Link>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-slate-950 text-white py-12 px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-xs font-light">© 2024 KETJU. All rights reserved.</p>
-          <div className="flex gap-8">
-            <Link to="/" className="text-slate-400 hover:text-white text-xs transition-colors">Home</Link>
-            <Link to="/verify" className="text-slate-400 hover:text-white text-xs transition-colors">Verify</Link>
+      <footer className="py-16 px-8 border-t border-white/5 bg-black">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <div className="text-2xl font-black tracking-tighter">KETJU</div>
+            <p className="text-slate-500 text-sm">© 2026 Ketju Platform. All rights reserved.</p>
+          </div>
+          <div className="flex gap-12 text-sm font-medium text-slate-400">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <Link to="/about" className="hover:text-white transition-colors">About</Link>
+            <Link to="/verify" className="hover:text-white transition-colors">Verify</Link>
+            <a href="#" className="hover:text-white transition-colors">Docs</a>
           </div>
         </div>
       </footer>
     </div>
   );
 }
+

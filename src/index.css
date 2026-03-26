@@ -76,6 +76,12 @@
   --color-on-surface-variant: var(--on-surface-variant);
   --color-surface-container-low: var(--surface-container-low);
   --color-surface-container-lowest: var(--surface-container-lowest);
+
+  --animate-scroll: scroll 30s linear infinite;
+  @keyframes scroll {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
 }
 
 html {
@@ -115,6 +121,17 @@ button {
   display: none;
 }
 
-.step-line {
-  background: repeating-linear-gradient(90deg, #c3c5d8, #c3c5d8 4px, transparent 4px, transparent 8px);
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+::selection {
+  background: rgba(0, 80, 227, 0.3);
+  color: white;
+}
+
