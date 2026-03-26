@@ -325,7 +325,6 @@ const Home: React.FC = () => {
           <div>
             <h5 className="text-slate-900 font-bold mb-6">Company</h5>
             <ul className="space-y-4">
-              <li><Link to="/about" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">About Us</Link></li>
               <li><Link to="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Our Mission</Link></li>
               <li><Link to="#" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold">Contact</Link></li>
             </ul>
