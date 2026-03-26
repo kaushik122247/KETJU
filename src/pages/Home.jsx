@@ -42,7 +42,7 @@ function Home() {
 <div class="h-[72px] w-full"></div>
 <main>
 <!-- Section 1: Hero Section -->
-<section class="relative bg-white pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
+<section class="relative bg-white pt-8 pb-24 md:pt-12 md:pb-40 overflow-hidden">
 <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16">
 <!-- Left Content -->
 <div class="w-full md:w-[55%]">
