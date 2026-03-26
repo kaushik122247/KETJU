@@ -44,16 +44,6 @@ function FarmerDashboard() {
 </header>
 <!-- Filler to prevent content overlap -->
 <div class="h-[72px] w-full"></div>
-<div class="flex items-center gap-4">
-<div class="flex items-center bg-[#16A34A]/10 text-[#16A34A] px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
-<span class="material-symbols-outlined text-sm mr-1">potted_plant</span>
-                Farmer Role
-            </div>
-<code class="text-xs font-medium text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-outline-variant/20">0x71C...4e21</code>
- <button class="text-sm font-semibold text-primary border border-primary px-4 py-1.5 rounded-full hover:bg-primary-container/5 transition-all active:scale-95">Disconnect</button>
-</div>
-<div class="bg-[#f6f2ff] dark:bg-[#2b2938] h-[1px] w-full absolute bottom-0 left-0"></div>
-</header>
 <div class="flex">
 <!-- SideNavBar -->
 <aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 z-40 bg-[#fcf8ff] dark:bg-[#1b1a25] flex flex-col py-8 px-4 gap-2">

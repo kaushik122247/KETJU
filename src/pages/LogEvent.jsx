@@ -47,7 +47,6 @@ function LogEvent() {
 </header>
 <!-- Filler to prevent content overlap -->
 <div class="h-[72px] w-full"></div>
-</header>
 <main class="max-w-[1280px] mx-auto px-8 py-12">
 <!-- Breadcrumb & Header -->
 <div class="mb-12">

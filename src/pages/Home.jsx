@@ -16,19 +16,30 @@ function Home() {
 </style>
 
 <!-- Top Navigation Bar -->
-<nav class="h-[72px] w-full sticky top-0 z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none flex justify-between items-center px-6 md:px-12 mx-auto">
-<div class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight" href="#how-it-works">How It Works</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/verify">Verify Product</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/farmer">For Farmers</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/admin">Dashboard</a>
-</div>
-<div class="flex items-center gap-4">
-<a href="/farmer" class="hidden lg:block"><button class="px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors w-full cursor-pointer">Connect Wallet</button></a>
-<a href="/register" class="inline-block"><button class="bg-primary-container text-on-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 scale-95 active:scale-90 transition-transform cursor-pointer">Get Started</button></a>
-</div>
-</nav>
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center h-[72px] px-8 shadow-sm">
+  <!-- Left: Logo -->
+  <div class="flex-1 flex justify-start w-full md:w-auto mt-2 md:mt-0">
+      <div class="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" onclick="window.location.href='/'">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_tree</span> KETJU
+      </div>
+  </div>
+
+  <!-- Center: Nav Items -->
+  <nav class="hidden md:flex flex-1 justify-center items-center gap-8 text-sm font-semibold">
+    <a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1 font-sans text-sm tracking-tight" href="#how-it-works">How It Works</a>
+    <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/verify">Verify Product</a>
+    <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/farmer">For Farmers</a>
+    <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-sans text-sm font-medium tracking-tight transition-colors" href="/admin">Dashboard</a>
+  </nav>
+
+  <!-- Right: Actions -->
+  <div class="flex-1 flex justify-end items-center gap-3 md:gap-4 mt-2 md:mt-0">
+    <a href="/farmer" class="hidden lg:block"><button class="px-5 py-2 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer">Connect Wallet</button></a>
+    <a href="/register" class="inline-block"><button class="bg-primary-container text-on-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 scale-95 hover:scale-[0.98] transition-transform cursor-pointer">Get Started</button></a>
+  </div>
+</header>
+<!-- Filler to prevent content overlap -->
+<div class="h-[72px] w-full"></div>
 <main>
 <!-- Section 1: Hero Section -->
 <section class="relative bg-white pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
