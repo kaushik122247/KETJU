@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface RecentScan {
@@ -13,6 +13,7 @@ export default function QRScanner() {
   const navigate = useNavigate();
   const [input, setInput] = useState('');
   const [recentScans, setRecentScans] = useState<RecentScan[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -23,14 +24,23 @@ export default function QRScanner() {
     // Request camera permissions on mount
     const requestCamera = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        // We just need the permission, so we can stop the tracks immediately if we don't have a video element yet
-        stream.getTracks().forEach(track => track.stop());
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
       } catch (err) {
         console.error('Camera permission denied:', err);
       }
     };
     requestCamera();
+
+    return () => {
+      // Clean up stream on unmount
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        stream.getTracks().forEach(track => track.stop());
+      }
+    };
   }, []);
 
   const saveAndNavigate = (batchId: string) => {
@@ -78,20 +88,21 @@ export default function QRScanner() {
           <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-blue-600 rounded-bl-xl z-20" />
           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-blue-600 rounded-br-xl z-20" />
           <div className="absolute inset-0 bg-white shadow-2xl rounded-2xl overflow-hidden flex items-center justify-center border border-slate-200">
-            <span className="material-symbols-outlined text-slate-200 text-6xl">qr_code_2</span>
+            <video 
+              ref={videoRef} 
+              autoPlay 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px] pointer-events-none" />
+            <span className="material-symbols-outlined text-slate-200/50 text-6xl relative z-10">qr_code_2</span>
             {/* Scanner line */}
-            <div className="scanner-line absolute" style={{ animation: 'scan 2.5s infinite linear', background: '#0050e3', boxShadow: '0 0 20px #0050e3' }} />
+            <div className="scanner-line absolute z-20" style={{ animation: 'scan 2.5s infinite linear', background: '#0050e3', boxShadow: '0 0 20px #0050e3' }} />
           </div>
         </div>
 
-        <div className="z-10 mt-10 flex gap-8">
-          <button className="w-14 h-14 flex items-center justify-center bg-white border border-slate-200 rounded-full shadow-lg hover:bg-slate-50 transition-all">
-            <span className="material-symbols-outlined text-slate-600">flash_on</span>
-          </button>
-          <button className="w-14 h-14 flex items-center justify-center bg-white border border-slate-200 rounded-full shadow-lg hover:bg-slate-50 transition-all">
-            <span className="material-symbols-outlined text-slate-600">flip_camera_ios</span>
-          </button>
-        </div>
+
+        <div className="z-10 mt-10 h-14" />
       </section>
 
       {/* Scanner animation CSS */}
