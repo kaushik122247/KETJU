@@ -4,11 +4,11 @@ import Navbar from '../components/Navbar';
 import { useApp, Product, SupplyEvent, Stage } from '../context/AppContext';
 
 const STAGE_COLORS: Record<Stage, { border: string; badge: string; badgeText: string; dot: string }> = {
-  farm:         { border: 'border-l-4 border-emerald-500', badge: 'bg-emerald-50 text-emerald-600', badgeText: 'FARM',         dot: 'bg-emerald-500' },
-  processing:   { border: 'border-r-4 border-amber-500',   badge: 'bg-amber-50 text-amber-600',     badgeText: 'PROCESSING',   dot: 'bg-amber-500' },
-  distribution: { border: 'border-l-4 border-orange-500',  badge: 'bg-orange-50 text-orange-600',   badgeText: 'DISTRIBUTION', dot: 'bg-orange-500' },
-  retail:       { border: 'border-r-4 border-purple-500',  badge: 'bg-purple-50 text-purple-600',  badgeText: 'RETAIL',       dot: 'bg-purple-500' },
-  consumer:     { border: 'border-l-4 border-blue-500',    badge: 'bg-blue-100 text-blue',          badgeText: 'VERIFIED',     dot: 'bg-blue-500' },
+  farm: { border: 'border-l-4 border-emerald-500', badge: 'bg-emerald-50 text-emerald-600', badgeText: 'FARM', dot: 'bg-emerald-500' },
+  processing: { border: 'border-r-4 border-amber-500', badge: 'bg-amber-50 text-amber-600', badgeText: 'PROCESSING', dot: 'bg-amber-500' },
+  distribution: { border: 'border-l-4 border-orange-500', badge: 'bg-orange-50 text-orange-600', badgeText: 'DISTRIBUTION', dot: 'bg-orange-500' },
+  retail: { border: 'border-r-4 border-purple-500', badge: 'bg-purple-50 text-purple-600', badgeText: 'RETAIL', dot: 'bg-purple-500' },
+  consumer: { border: 'border-l-4 border-blue-500', badge: 'bg-blue-100 text-blue', badgeText: 'VERIFIED', dot: 'bg-blue-500' },
 };
 
 export default function VerifyProduct() {
