@@ -79,21 +79,16 @@ export default function About() {
             <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Powering secure ecosystems globally</p>
           </div>
           <div className="flex relative items-center py-20 md:py-24 min-h-[250px] overflow-visible">
-            <div className="flex gap-16 md:gap-32 items-center animate-scroll whitespace-nowrap overflow-visible">
+            <div className="flex gap-16 md:gap-32 items-center animate-scroll whitespace-nowrap overflow-visible w-max flex-nowrap flex-shrink-0">
               {/* Double the logos for seamless scroll */}
               {[...partners, ...partners].map((partner, index) => (
                 <div key={`${partner.name}-${index}`} className="flex flex-col items-center gap-6 transition-all duration-300 opacity-40 hover:opacity-100 cursor-default group px-6">
-<<<<<<< HEAD
                   <div className={`relative h-12 md:h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 ${partner.name === 'IPFS' ? 'bg-white rounded-full aspect-square p-3 shadow-lg' : ''}`}>
-                    <img src={partner.logo} alt={partner.name} className={`h-full w-auto object-contain ${partner.name === 'IPFS' ? 'scale-[1.1]' : 'brightness-200 contrast-125'}`} />
-=======
-                  <div className="relative h-12 md:h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-125">
                     <img 
                       src={partner.logo} 
                       alt={partner.name} 
-                      className={`h-full w-auto object-contain brightness-0 opacity-60 transition-all duration-300 group-hover:opacity-100 ${partner.name === 'IPFS' ? 'scale-[1.5]' : ''}`} 
+                      className={`h-full w-auto object-contain transition-all duration-300 ${partner.name === 'IPFS' ? 'scale-[1.1]' : 'brightness-0 opacity-60 group-hover:opacity-100'}`} 
                     />
->>>>>>> 8a9048d1c93389195bc087a031210c1fc881b394
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 transition-colors duration-300 group-hover:text-blue-600 group-hover:scale-110">{partner.name}</span>
                 </div>
@@ -133,19 +128,11 @@ export default function About() {
                   <p className="text-blue-600 text-sm font-bold mb-3 uppercase tracking-wider">{member.role}</p>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">{member.bio}</p>
                   <div className="flex gap-4">
-<<<<<<< HEAD
-                    <a href={member.github} className="text-slate-500 hover:text-white transition-colors">
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
-                    </a>
-                    <a href={member.x} className="text-slate-500 hover:text-white transition-colors">
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-=======
                     <a href={member.github} className="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-all">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                     </a>
                     <a href={member.x} className="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-all">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
->>>>>>> 8a9048d1c93389195bc087a031210c1fc881b394
                     </a>
                   </div>
                 </div>
