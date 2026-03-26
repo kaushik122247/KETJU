@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
@@ -13,28 +13,13 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [recentEmails, setRecentEmails] = useState<string[]>([]);
   
-  useEffect(() => {
-    const stored = localStorage.getItem('ketju_recent_emails');
-    if (stored) {
-      try { setRecentEmails(JSON.parse(stored)); } catch { /* ignore */ }
-    }
-  }, []);
-
-  const saveRecentEmail = (email: string) => {
-    const updated = [email, ...recentEmails.filter(e => e !== email)].slice(0, 3);
-    setRecentEmails(updated);
-    localStorage.setItem('ketju_recent_emails', JSON.stringify(updated));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) { setError('Please fill in all fields.'); return; }
     setError(''); setLoading(true);
     try {
       await login(email, password);
-      saveRecentEmail(email);
       // Redirect to role dashboard
       navigate(from === '/' ? getDashboardPath(email) : from, { replace: true });
     } catch (err: unknown) {
@@ -53,12 +38,6 @@ export default function Login() {
     return '/farmer';
   };
 
-  const demoAccounts = [
-    { label: '🌾 Farmer', email: 'farmer@test.com' },
-    { label: '⚙️ Processor', email: 'processor@test.com' },
-    { label: '🚛 Distributor', email: 'distributor@test.com' },
-    { label: '🏪 Retailer', email: 'retailer@test.com' },
-  ];
 
   return (
     <div className="min-h-screen bg-surface flex flex-col font-sans">
@@ -106,7 +85,7 @@ export default function Login() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
+              <div className="space-y-2 relative">
                 <label className="block text-xs font-black text-on-surface-variant uppercase tracking-widest pl-1">Email Address</label>
                 <input
                   type="email"
@@ -145,51 +124,6 @@ export default function Login() {
                 )}
               </button>
             </form>
-
-            {/* Recent Accounts */}
-            {recentEmails.length > 0 && (
-              <div className="mt-12">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="flex-1 h-px bg-slate-100"></div>
-                  <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-[0.2em]">Recent Accounts</p>
-                  <div className="flex-1 h-px bg-slate-100"></div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {recentEmails.map(re => (
-                    <button
-                      key={re}
-                      onClick={() => setEmail(re)}
-                      className="px-4 py-2 rounded-full border border-slate-200 text-sm font-medium text-on-surface hover:bg-primary-container/5 hover:border-primary-container/30 transition-all flex items-center gap-2"
-                    >
-                      <span className="material-symbols-outlined text-sm text-primary">history</span>
-                      {re}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Demo accounts */}
-            <div className={`mt-${recentEmails.length > 0 ? '8' : '12'}`}>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex-1 h-px bg-slate-100"></div>
-                <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-[0.2em]">Quick Demo Access</p>
-                <div className="flex-1 h-px bg-slate-100"></div>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {demoAccounts.map(acc => (
-                  <button
-                    key={acc.email}
-                    type="button"
-                    onClick={() => { setEmail(acc.email); setPassword('Chain@2024'); }}
-                    className="group py-3 px-4 rounded-xl bg-surface-container-low text-on-surface-variant hover:bg-primary-container/10 hover:text-primary transition-all text-left border border-transparent hover:border-primary-container/20"
-                  >
-                    <div className="text-sm font-black mb-0.5">{acc.label}</div>
-                    <div className="font-mono text-[9px] opacity-60 group-hover:opacity-100">{acc.email}</div>
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <p className="text-center text-sm text-on-surface-variant mt-10 font-medium">
               New to the chain?{' '}
