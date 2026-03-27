@@ -137,6 +137,18 @@ button {
 }
 
 ::selection {
-  background: rgba(0, 80, 227, 0.3);
   color: white;
 }
+
+@keyframes float {
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -60%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+}
+
