@@ -61,73 +61,97 @@ const Home: React.FC = () => {
             </div>
             
             {/* Right Visual: Technical Diagram */}
-            <div className="w-full md:w-[45%] relative mt-12 md:mt-0">
-              <div className="aspect-square w-full rounded-3xl bg-surface-container-low flex items-center justify-center p-4 md:p-8 relative">
-                {/* Abstract Mesh Background */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0254ec 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
-                
-                {/* Blockchain Visual */}
-                {/* Blockchain Visual */}
-                <div className="relative w-full h-full">
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
-                    <path d="M 50% 20% L 20% 50% L 50% 80% L 80% 50% Z" fill="none" stroke="url(#grad-hero)" strokeDasharray="4,4" strokeWidth="1.5"></path>
-                    <defs>
-                      <linearGradient id="grad-hero" x1="0%" x2="100%" y1="0%" y2="100%">
-                        <stop offset="0%" style={{ stopColor: '#16A34A', stopOpacity: 1 }}></stop>
-                        <stop offset="50%" style={{ stopColor: '#0254ec', stopOpacity: 1 }}></stop>
-                        <stop offset="100%" style={{ stopColor: '#673c65', stopOpacity: 1 }}></stop>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  
-                  {/* Node: Farm */}
-                  <div className="absolute top-[12%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
-                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-white shadow-md flex items-center justify-center border-2 border-emerald-500">
-                      <span className="material-symbols-outlined text-emerald-600 text-xl md:text-2xl">agriculture</span>
-                    </div>
-                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-emerald-700 bg-emerald-50/80 px-1.5 py-0.5 rounded backdrop-blur-sm">Farm</span>
+            <div className="w-full md:w-[480px] h-auto aspect-square md:h-[480px] relative mx-auto mt-12 md:mt-0">
+              {/* Main Container */}
+              <div className="w-full h-full rounded-[24px] bg-[#f0ecfb] relative shadow-sm">
+                {/* Security Badge */}
+                <div className="absolute top-4 left-4 z-50 bg-white border border-[#e0e0e0] rounded-full px-3 py-1.5 flex items-center gap-2 shadow-sm">
+                  <span className="material-symbols-outlined text-[#0254EC] text-base" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
+                  <div className="flex flex-col leading-none">
+                    <span className="text-[10px] font-bold text-slate-900 tracking-tight">SECURITY</span>
+                    <span className="text-[9px] font-medium text-slate-500">Polygon</span>
                   </div>
+                </div>
+
+                {/* SVG Connections Overlay - Anchored to node centers */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
+                  <defs>
+                    <linearGradient id="grad-farm" x1="50%" y1="15.5%" x2="50%" y2="50%">
+                      <stop offset="0%" stopColor="#16A34A" />
+                      <stop offset="100%" stopColor="#c3c5d8" />
+                    </linearGradient>
+                    <linearGradient id="grad-retailer" x1="85.5%" y1="25.5%" x2="50%" y2="50%">
+                      <stop offset="0%" stopColor="#7C3AED" />
+                      <stop offset="100%" stopColor="#c3c5d8" />
+                    </linearGradient>
+                    <linearGradient id="grad-processor" x1="17.5%" y1="49.5%" x2="50%" y2="50%">
+                      <stop offset="0%" stopColor="#D97706" />
+                      <stop offset="100%" stopColor="#c3c5d8" />
+                    </linearGradient>
+                    <linearGradient id="grad-distributor" x1="79.5%" y1="49.5%" x2="50%" y2="50%">
+                      <stop offset="0%" stopColor="#EA580C" />
+                      <stop offset="100%" stopColor="#c3c5d8" />
+                    </linearGradient>
+                    <linearGradient id="grad-consumer" x1="50%" y1="82.5%" x2="50%" y2="50%">
+                      <stop offset="0%" stopColor="#0254EC" />
+                      <stop offset="100%" stopColor="#c3c5d8" />
+                    </linearGradient>
+                  </defs>
                   
-                  {/* Node: Processor */}
-                  <div className="absolute top-[42%] left-[10%] flex flex-col items-center gap-1 z-10">
-                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-white shadow-md flex items-center justify-center border-2 border-amber-500">
-                      <span className="material-symbols-outlined text-amber-600 text-xl md:text-2xl">precision_manufacturing</span>
+                  {/* Connection Lines (Node Center to Chain Link Center) */}
+                  <line x1="50%" y1="15.5%" x2="50%" y2="50%" stroke="url(#grad-farm)" strokeWidth="1.5" strokeDasharray="6 3" />
+                  <line x1="17.5%" y1="49.5%" x2="50%" y2="50%" stroke="url(#grad-processor)" strokeWidth="1.5" strokeDasharray="6 3" />
+                  <line x1="79.5%" y1="49.5%" x2="50%" y2="50%" stroke="url(#grad-distributor)" strokeWidth="1.5" strokeDasharray="6 3" />
+                  <line x1="85.5%" y1="25.5%" x2="50%" y2="50%" stroke="url(#grad-retailer)" strokeWidth="1.5" strokeDasharray="6 3" />
+                  <line x1="50%" y1="82.5%" x2="50%" y2="50%" stroke="url(#grad-consumer)" strokeWidth="1.5" strokeDasharray="6 3" />
+                </svg>
+
+                {/* Nodes Container */}
+                <div className="relative w-full h-full">
+                  {/* Node: Farm */}
+                  <div className="absolute top-[8%] left-[50%] -translate-x-1/2 flex flex-col items-center z-20">
+                    <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#16A34A] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                      <span className="material-symbols-outlined text-[#16A34A] text-[28px]">agriculture</span>
                     </div>
-                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded backdrop-blur-sm">Processor</span>
+                    <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#16A34A]">Farm</span>
                   </div>
 
                   {/* Node: Retailer */}
-                  <div className="absolute top-[42%] right-[10%] flex flex-col items-center gap-1 z-10">
-                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-white shadow-md flex items-center justify-center border-2 border-purple-500">
-                      <span className="material-symbols-outlined text-purple-600 text-xl md:text-2xl">storefront</span>
+                  <div className="absolute top-[18%] left-[78%] flex flex-col items-center z-20">
+                    <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#7C3AED] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                      <span className="material-symbols-outlined text-[#7C3AED] text-[28px]">storefront</span>
                     </div>
-                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-purple-700 bg-purple-50/80 px-1.5 py-0.5 rounded backdrop-blur-sm">Retailer</span>
+                    <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#7C3AED]">Retailer</span>
                   </div>
-                  
+
+                  {/* Node: Processor */}
+                  <div className="absolute top-[42%] left-[10%] flex flex-col items-center z-20">
+                    <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#D97706] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                      <span className="material-symbols-outlined text-[#D97706] text-[28px]">precision_manufacturing</span>
+                    </div>
+                    <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#D97706]">Processor</span>
+                  </div>
+
+                  {/* Node: Distributor */}
+                  <div className="absolute top-[42%] left-[72%] flex flex-col items-center z-20">
+                    <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#EA580C] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                      <span className="material-symbols-outlined text-[#EA580C] text-[28px]">local_shipping</span>
+                    </div>
+                    <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#EA580C]">Distributor</span>
+                  </div>
+
                   {/* Node: Consumer */}
-                  <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
-                    <div className="w-12 h-12 md:w-18 md:h-18 rounded-full bg-primary-container shadow-lg flex items-center justify-center border-4 border-white/50 backdrop-blur-sm transition-transform hover:scale-110 duration-300">
-                      <span className="material-symbols-outlined text-white text-xl md:text-3xl">person_check</span>
+                  <div className="absolute top-[75%] left-[50%] -translate-x-1/2 flex flex-col items-center z-20">
+                    <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#0254EC] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                      <span className="material-symbols-outlined text-[#0254EC] text-[28px]">person_check</span>
                     </div>
-                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-primary bg-primary-fixed/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">Consumer</span>
+                    <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#0254EC]">Consumer</span>
                   </div>
-                  
-                  {/* Center: The Chain */}
-                  <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/90 shadow-inner flex items-center justify-center text-primary-container border border-slate-100 z-[5]">
-                    <span className="material-symbols-outlined animate-pulse text-lg md:text-2xl">link</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating Badge */}
-              <div className="absolute top-0 left-0 bg-white/40 backdrop-blur-[10px] p-2 md:p-3 rounded-2xl border border-white/20 z-20 hover:bg-white/90 transition-all duration-500">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
-                    <span className="material-symbols-outlined text-sm md:text-base" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
-                  </div>
-                  <div className="hidden sm:block">
-                    <p className="text-[8px] md:text-[9px] uppercase font-black text-blue-800 tracking-[0.2em] leading-none mb-1">Security</p>
-                    <p className="text-[9px] md:text-[10px] font-bold text-slate-500 leading-none">Polygon</p>
+
+                  {/* Center: Chain Link */}
+                  <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center text-[#0254EC] border-2 border-slate-100 z-30">
+                    <div className="absolute inset-0 rounded-full bg-blue-500/10 animate-ping"></div>
+                    <span className="material-symbols-outlined text-[28px] relative z-40">link</span>
                   </div>
                 </div>
               </div>
