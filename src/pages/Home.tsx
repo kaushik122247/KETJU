@@ -84,23 +84,12 @@ const Home: React.FC = () => {
             </div>
 
             {/* Right Visual: Technical Diagram */}
-            <div className="w-full md:w-[500px] h-auto aspect-square md:h-[500px] relative mx-auto mt-12 md:mt-0 flex items-center justify-center">
+            <div className="w-full md:w-[500px] aspect-square relative mx-auto mt-12 md:mt-0">
               {/* Main Container with Soft Lavender & Glassmorphism */}
-              <div className="w-full h-full rounded-[40px] bg-[#f5f3ff] relative shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] border border-white overflow-visible transition-all duration-700 hover:shadow-[0_48px_80px_-16px_rgba(124,58,237,0.1)]">
+              <div className="absolute inset-0 rounded-[40px] bg-[#f5f3ff] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] border border-white overflow-visible transition-all duration-700 hover:shadow-[0_48px_80px_-16px_rgba(124,58,237,0.1)]">
 
                 {/* Visual Glow Layer */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/5 blur-[80px] rounded-full pointer-events-none" />
-
-                {/* Security Badge - Figma Style */}
-                <div className="absolute top-6 left-6 z-50 bg-white/90 backdrop-blur-md border border-slate-200/50 rounded-2xl px-4 py-2.5 flex items-center gap-3 shadow-sm select-none">
-                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
-                    <ShieldCheck className="w-5 h-5 text-[#0254EC]" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[11px] font-black text-slate-900 tracking-wider">SECURITY</span>
-                    <span className="text-[10px] font-bold text-slate-400">Polygon Network</span>
-                  </div>
-                </div>
 
                 {/* SVG Connections Overlay - Mathematically Precise Circular Anchors */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
@@ -113,11 +102,11 @@ const Home: React.FC = () => {
                       <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.8" />
                       <stop offset="100%" stopColor="#DDD6FE" stopOpacity="0.2" />
                     </linearGradient>
-                    <linearGradient id="grad-distributor" x1="70.6%" y1="78.5%" x2="50%" y2="50%">
+                    <linearGradient id="grad-distributor" x1="70.6%" y1="78.3%" x2="50%" y2="50%">
                       <stop offset="0%" stopColor="#F97316" stopOpacity="0.8" />
                       <stop offset="100%" stopColor="#DDD6FE" stopOpacity="0.2" />
                     </linearGradient>
-                    <linearGradient id="grad-consumer" x1="29.4%" y1="78.5%" x2="50%" y2="50%">
+                    <linearGradient id="grad-consumer" x1="29.4%" y1="78.3%" x2="50%" y2="50%">
                       <stop offset="0%" stopColor="#0254EC" stopOpacity="0.8" />
                       <stop offset="100%" stopColor="#DDD6FE" stopOpacity="0.2" />
                     </linearGradient>
@@ -131,14 +120,14 @@ const Home: React.FC = () => {
                   <g className="opacity-40">
                     <line x1="50%" y1="15%" x2="50%" y2="50%" stroke="url(#grad-farm)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
                     <line x1="83.3%" y1="39.2%" x2="50%" y2="50%" stroke="url(#grad-retailer)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
-                    <line x1="70.6%" y1="78.5%" x2="50%" y2="50%" stroke="url(#grad-distributor)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
-                    <line x1="29.4%" y1="78.5%" x2="50%" y2="50%" stroke="url(#grad-consumer)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
+                    <line x1="70.6%" y1="78.3%" x2="50%" y2="50%" stroke="url(#grad-distributor)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
+                    <line x1="29.4%" y1="78.3%" x2="50%" y2="50%" stroke="url(#grad-consumer)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
                     <line x1="16.7%" y1="39.2%" x2="50%" y2="50%" stroke="url(#grad-processor)" strokeWidth="2" strokeDasharray="8 4" strokeLinecap="round" />
                   </g>
                 </svg>
 
                 {/* Nodes Container - Anti-Gvavity Floating Effect */}
-                <div className="relative w-full h-full">
+                <div className="absolute inset-0">
                   {/* Node: Farm */}
                   <div className="absolute top-[15%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 animate-[float_4s_ease-in-out_infinite]">
                     <div className="w-[84px] h-[84px] rounded-[24px] bg-white border border-[#22C55E]/30 flex items-center justify-center shadow-[0_12px_24px_-8px_rgba(34,197,94,0.15)] transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_32px_-8px_rgba(34,197,94,0.25)] ring-4 ring-[#22C55E]/5">
@@ -156,7 +145,7 @@ const Home: React.FC = () => {
                   </div>
 
                   {/* Node: Distributor */}
-                  <div className="absolute top-[78.5%] left-[70.6%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 animate-[float_5s_ease-in-out_infinite_1s]">
+                  <div className="absolute top-[78.3%] left-[70.6%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 animate-[float_5s_ease-in-out_infinite_1s]">
                     <div className="w-[84px] h-[84px] rounded-[24px] bg-white border border-[#F97316]/30 flex items-center justify-center shadow-[0_12px_24px_-8px_rgba(249,115,22,0.15)] transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_32px_-8px_rgba(249,115,22,0.25)] ring-4 ring-[#F97316]/5">
                       <Truck className="w-10 h-10 text-[#F97316]" />
                     </div>
@@ -164,7 +153,7 @@ const Home: React.FC = () => {
                   </div>
 
                   {/* Node: Consumer */}
-                  <div className="absolute top-[78.5%] left-[29.4%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 animate-[float_4.2s_ease-in-out_infinite_0.7s]">
+                  <div className="absolute top-[78.3%] left-[29.4%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 animate-[float_4.2s_ease-in-out_infinite_0.7s]">
                     <div className="w-[84px] h-[84px] rounded-[24px] bg-white border border-[#0254EC]/30 flex items-center justify-center shadow-[0_12px_24px_-8px_rgba(2,84,236,0.15)] transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_32px_-8px_rgba(2,84,236,0.25)] ring-4 ring-[#0254EC]/5">
                       <UserCheck className="w-10 h-10 text-[#0254EC]" />
                     </div>
@@ -179,6 +168,7 @@ const Home: React.FC = () => {
                     <span className="mt-3 text-[10px] font-black uppercase tracking-[2.5px] text-[#D97706]/80 antialiased">Processor</span>
                   </div>
 
+                  {/* Center Hub: The Blockchain Link */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-[0_0_40px_rgba(2,84,236,0.15)] flex items-center justify-center text-[#0254EC] border-2 border-slate-100 z-30 transition-shadow duration-500 hover:shadow-[0_0_60px_rgba(2,84,236,0.25)]">
                     <div className="absolute inset-0 rounded-full bg-blue-500/10 animate-ping opacity-40"></div>
                     <LinkIcon className="w-8 h-8 relative z-40 text-[#0254EC]" />
