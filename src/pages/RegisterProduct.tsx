@@ -3,6 +3,15 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { useApp, Product } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
+import { 
+  CheckCircle2, 
+  ChevronRight, 
+  Info, 
+  Box, 
+  MapPin, 
+  ShieldCheck, 
+  ShieldAlert 
+} from 'lucide-react';
 
 type FormData = {
   name: string;
@@ -95,7 +104,7 @@ export default function RegisterProduct() {
         <div className="h-[72px]" />
         <div className="max-w-lg mx-auto px-6 py-24 text-center">
           <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <span className="material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+            <CheckCircle2 className="w-12 h-12" />
           </div>
           <h2 className="text-3xl font-extrabold mb-3 text-on-surface">Product Registered!</h2>
           <p className="text-on-surface-variant mb-8 leading-relaxed">
@@ -143,7 +152,7 @@ export default function RegisterProduct() {
         <div className="max-w-[800px] mx-auto px-6">
           <nav className="mb-6 flex items-center gap-2 text-sm text-on-surface-variant">
             <button onClick={() => navigate('/farmer')} className="hover:text-primary cursor-pointer transition-colors">Dashboard</button>
-            <span className="material-symbols-outlined text-sm">chevron_right</span>
+            <ChevronRight className="w-3.5 h-3.5" />
             <span className="font-medium text-on-surface">Register New Product</span>
           </nav>
           <h1 className="text-5xl font-extrabold tracking-tight text-on-surface mb-4 leading-tight">Register a New Product Batch</h1>
@@ -151,7 +160,7 @@ export default function RegisterProduct() {
             Fill in the details below. An immutable blockchain record will be created.
           </p>
           <div className="flex items-start gap-4 p-5 bg-primary/5 border-l-4 border-primary rounded-r-xl">
-            <span className="material-symbols-outlined text-primary">info</span>
+            <Info className="w-6 h-6 text-primary" />
             <p className="text-sm text-on-surface-variant font-medium">
               Your wallet will be prompted to sign a transaction after submission. A small gas fee on Polygon will apply.
             </p>
@@ -165,7 +174,7 @@ export default function RegisterProduct() {
           {/* Section A: Product Info */}
           <section className="space-y-6">
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">inventory_2</span>
+              <Box className="w-8 h-8 text-primary bg-primary/10 p-1.5 rounded-lg" />
               <h2 className="text-2xl font-bold text-on-surface">Product Information</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -220,7 +229,7 @@ export default function RegisterProduct() {
           {/* Section B: Location */}
           <section className="space-y-6">
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">location_on</span>
+              <MapPin className="w-8 h-8 text-primary bg-primary/10 p-1.5 rounded-lg" />
               <h2 className="text-2xl font-bold text-on-surface">Location Details</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -252,7 +261,7 @@ export default function RegisterProduct() {
           {/* Section C: Certification */}
           <section className="space-y-6">
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">verified</span>
+              <ShieldCheck className="w-8 h-8 text-primary bg-primary/10 p-1.5 rounded-lg" />
               <h2 className="text-2xl font-bold text-on-surface">Certification</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -288,7 +297,7 @@ export default function RegisterProduct() {
             {loading ? (
               <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> Registering on Blockchain…</>
             ) : (
-              <><span className="material-symbols-outlined text-lg">verified_user</span> Register on Blockchain</>
+              <><ShieldAlert className="w-5 h-5" /> Register on Blockchain</>
             )}
           </button>
         </div>

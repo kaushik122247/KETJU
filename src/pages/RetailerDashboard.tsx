@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
+import { 
+  Truck, 
+  Store, 
+  ShoppingCart, 
+  BadgeCheck, 
+  XCircle 
+} from 'lucide-react';
 
 export default function RetailerDashboard() {
   const { user } = useAuth();
@@ -28,13 +35,13 @@ export default function RetailerDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         {[
-          { icon: 'local_shipping', value: incoming.length, label: 'Incoming Shipments', color: 'text-orange-600', bg: 'bg-orange-100' },
-          { icon: 'storefront', value: onShelf.length, label: 'On Shelf', color: 'text-purple-600', bg: 'bg-purple-100' },
-          { icon: 'shopping_cart_checkout', value: sold.length, label: 'Sold / Verified', color: 'text-green-600', bg: 'bg-green-100' },
+          { icon: Truck, value: incoming.length, label: 'Incoming Shipments', color: 'text-orange-600', bg: 'bg-orange-100' },
+          { icon: Store, value: onShelf.length, label: 'On Shelf', color: 'text-purple-600', bg: 'bg-purple-100' },
+          { icon: ShoppingCart, value: sold.length, label: 'Sold / Verified', color: 'text-green-600', bg: 'bg-green-100' },
         ].map((s, i) => (
           <div key={i} className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm group hover:translate-y-[-4px] transition-all border border-slate-100">
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${s.bg} ${s.color}`}>
-              <span className="material-symbols-outlined">{s.icon}</span>
+              <s.icon className="w-6 h-6" />
             </div>
             <div className="text-4xl font-black text-on-surface mb-1">{s.value}</div>
             <div className="text-sm font-semibold text-on-surface-variant">{s.label}</div>
@@ -65,8 +72,8 @@ export default function RetailerDashboard() {
                   <td className="px-6 py-5 font-mono text-xs text-on-surface-variant">#{p.batchId}</td>
                   <td className="px-6 py-5">
                     {p.isOrganic
-                      ? <span className="material-symbols-outlined text-emerald-600" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                      : <span className="material-symbols-outlined text-on-surface-variant/40">cancel</span>
+                      ? <BadgeCheck className="w-5 h-5 text-emerald-600" />
+                      : <XCircle className="w-5 h-5 text-on-surface-variant/40" />
                     }
                   </td>
                   <td className="px-6 py-5">

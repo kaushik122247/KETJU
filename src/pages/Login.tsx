@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
+import { 
+  Shield, 
+  QrCode, 
+  ShieldCheck, 
+  AlertCircle, 
+  LogIn 
+} from 'lucide-react';
 
 export default function Login() {
   const { login } = useAuth();
@@ -54,13 +61,13 @@ export default function Login() {
             </h2>
             <div className="space-y-6">
               {[
-                { icon: 'shield', text: 'Immutable ledger records for every batch' },
-                { icon: 'qr_code_2', text: 'Instant consumer verification via QR' },
-                { icon: 'verified_user', text: 'Soulbound NFT certifications for farmers' },
+                { icon: Shield, text: 'Immutable ledger records for every batch' },
+                { icon: QrCode, text: 'Instant consumer verification via QR' },
+                { icon: ShieldCheck, text: 'Soulbound NFT certifications for farmers' },
               ].map(f => (
                 <div key={f.text} className="flex items-center gap-4 group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all">
                   <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
-                    <span className="material-symbols-outlined text-2xl">{f.icon}</span>
+                    <f.icon className="w-6 h-6" />
                   </div>
                   <span className="text-slate-700 text-lg font-bold">{f.text}</span>
                 </div>
@@ -79,7 +86,7 @@ export default function Login() {
 
             {error && (
               <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-xl mb-8 text-red-700 text-sm font-bold">
-                <span className="material-symbols-outlined text-sm">error</span>
+                <AlertCircle className="w-4 h-4" />
                 {error}
               </div>
             )}
@@ -120,7 +127,7 @@ export default function Login() {
                 {loading ? (
                   <><div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin" /> Signing in…</>
                 ) : (
-                  <>Connect Account <span className="material-symbols-outlined">login</span></>
+                  <>Connect Account <LogIn className="w-5 h-5" /></>
                 )}
               </button>
             </form>

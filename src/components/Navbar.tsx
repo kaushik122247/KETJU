@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth, Role } from '../context/AuthContext';
+import { Network } from 'lucide-react';
 
 interface NavbarProps {
   role?: Role;
@@ -74,7 +75,7 @@ export default function Navbar({ role }: NavbarProps) {
       {/* Logo */}
       <div className="flex-1 flex justify-start">
         <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>account_tree</span>
+          <Network className="w-8 h-8 text-primary" strokeWidth={2.5} />
           <span className="text-2xl font-black tracking-tighter text-slate-900">KETJU</span>
         </Link>
       </div>

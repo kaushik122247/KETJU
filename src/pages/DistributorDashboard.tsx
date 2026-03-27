@@ -3,6 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
+import { 
+  Inbox, 
+  Truck, 
+  CheckCircle2, 
+  History 
+} from 'lucide-react';
 
 export default function DistributorDashboard() {
   const { user } = useAuth();
@@ -28,13 +34,13 @@ export default function DistributorDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         {[
-          { icon: 'inbox', value: incoming.length, label: 'Ready to Dispatch', color: 'text-amber-600', bg: 'bg-amber-100' },
-          { icon: 'local_shipping', value: inTransit.length, label: 'In Transit', color: 'text-orange-600', bg: 'bg-orange-100' },
-          { icon: 'check_circle', value: delivered.length, label: 'Delivered', color: 'text-green-600', bg: 'bg-green-100' },
+          { icon: Inbox, value: incoming.length, label: 'Ready to Dispatch', color: 'text-amber-600', bg: 'bg-amber-100' },
+          { icon: Truck, value: inTransit.length, label: 'In Transit', color: 'text-orange-600', bg: 'bg-orange-100' },
+          { icon: CheckCircle2, value: delivered.length, label: 'Delivered', color: 'text-green-600', bg: 'bg-green-100' },
         ].map((s, i) => (
           <div key={i} className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm group hover:translate-y-[-4px] transition-all border border-slate-100">
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${s.bg} ${s.color}`}>
-              <span className="material-symbols-outlined">{s.icon}</span>
+              <s.icon className="w-6 h-6" />
             </div>
             <div className="text-4xl font-black text-on-surface mb-1">{s.value}</div>
             <div className="text-sm font-semibold text-on-surface-variant">{s.label}</div>

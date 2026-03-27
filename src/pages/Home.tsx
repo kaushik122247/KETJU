@@ -1,6 +1,29 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { 
+  Leaf, 
+  ScanQrCode, 
+  ShieldCheck, 
+  Sprout, 
+  Store, 
+  Factory, 
+  Truck, 
+  UserCheck, 
+  Link as LinkIcon,
+  Network,
+  Wheat,
+  Settings,
+  Smartphone,
+  Shield,
+  Zap,
+  Award,
+  Eye,
+  ArrowRight,
+  Users,
+  HardHat,
+  Send
+} from 'lucide-react';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -16,7 +39,7 @@ const Home: React.FC = () => {
             {/* Left Content */}
             <div className="w-full md:w-[55%]">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold mb-8">
-                <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>eco</span>
+                <Leaf className="w-4 h-4" />
                 Blockchain Verified Supply Chain
               </div>
               
@@ -31,7 +54,7 @@ const Home: React.FC = () => {
               <div className="flex flex-wrap gap-4 mb-16">
                 <Link to="/scanner" className="inline-block">
                   <button className="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer border-none">
-                    <span className="material-symbols-outlined">qr_code_scanner</span>
+                    <ScanQrCode className="w-5 h-5" />
                     Scan a QR Code
                   </button>
                 </Link>
@@ -66,7 +89,7 @@ const Home: React.FC = () => {
               <div className="w-full h-full rounded-[24px] bg-[#f0ecfb] relative shadow-sm">
                 {/* Security Badge */}
                 <div className="absolute top-4 left-4 z-50 bg-white border border-[#e0e0e0] rounded-full px-3 py-1.5 flex items-center gap-2 shadow-sm">
-                  <span className="material-symbols-outlined text-[#0254EC] text-base" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
+                  <ShieldCheck className="w-4 h-4 text-[#0254EC]" />
                   <div className="flex flex-col leading-none">
                     <span className="text-[10px] font-bold text-slate-900 tracking-tight">SECURITY</span>
                     <span className="text-[9px] font-medium text-slate-500">Polygon</span>
@@ -108,10 +131,10 @@ const Home: React.FC = () => {
 
                 {/* Nodes Container */}
                 <div className="relative w-full h-full">
-                  {/* Node: Farm */}
+                   {/* Node: Farm */}
                   <div className="absolute top-[8%] left-[50%] -translate-x-1/2 flex flex-col items-center z-20">
                     <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#16A34A] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
-                      <span className="material-symbols-outlined text-[#16A34A] text-[28px]">agriculture</span>
+                      <Sprout className="w-8 h-8 text-[#16A34A]" />
                     </div>
                     <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#16A34A]">Farm</span>
                   </div>
@@ -119,7 +142,7 @@ const Home: React.FC = () => {
                   {/* Node: Retailer */}
                   <div className="absolute top-[18%] left-[78%] flex flex-col items-center z-20">
                     <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#7C3AED] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
-                      <span className="material-symbols-outlined text-[#7C3AED] text-[28px]">storefront</span>
+                      <Store className="w-8 h-8 text-[#7C3AED]" />
                     </div>
                     <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#7C3AED]">Retailer</span>
                   </div>
@@ -127,7 +150,7 @@ const Home: React.FC = () => {
                   {/* Node: Processor */}
                   <div className="absolute top-[42%] left-[10%] flex flex-col items-center z-20">
                     <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#D97706] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
-                      <span className="material-symbols-outlined text-[#D97706] text-[28px]">precision_manufacturing</span>
+                      <Factory className="w-8 h-8 text-[#D97706]" />
                     </div>
                     <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#D97706]">Processor</span>
                   </div>
@@ -135,7 +158,7 @@ const Home: React.FC = () => {
                   {/* Node: Distributor */}
                   <div className="absolute top-[42%] left-[72%] flex flex-col items-center z-20">
                     <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#EA580C] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
-                      <span className="material-symbols-outlined text-[#EA580C] text-[28px]">local_shipping</span>
+                      <Truck className="w-8 h-8 text-[#EA580C]" />
                     </div>
                     <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#EA580C]">Distributor</span>
                   </div>
@@ -143,7 +166,7 @@ const Home: React.FC = () => {
                   {/* Node: Consumer */}
                   <div className="absolute top-[75%] left-[50%] -translate-x-1/2 flex flex-col items-center z-20">
                     <div className="w-[72px] h-[72px] rounded-[16px] bg-white border-2 border-[#0254EC] flex items-center justify-center shadow-lg transition-transform hover:scale-110">
-                      <span className="material-symbols-outlined text-[#0254EC] text-[28px]">person_check</span>
+                      <UserCheck className="w-8 h-8 text-[#0254EC]" />
                     </div>
                     <span className="mt-2 text-[9px] font-extrabold uppercase tracking-[2px] text-[#0254EC]">Consumer</span>
                   </div>
@@ -151,7 +174,7 @@ const Home: React.FC = () => {
                   {/* Center: Chain Link */}
                   <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center text-[#0254EC] border-2 border-slate-100 z-30">
                     <div className="absolute inset-0 rounded-full bg-blue-500/10 animate-ping"></div>
-                    <span className="material-symbols-outlined text-[28px] relative z-40">link</span>
+                    <LinkIcon className="w-7 h-7 relative z-40 text-[#0254EC]" />
                   </div>
                 </div>
               </div>
@@ -176,15 +199,15 @@ const Home: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 relative z-10">
                 {/* Steps */}
                 {[
-                  { icon: 'grain', title: 'Farm Registration', desc: 'Farmer registers product batch with organic certifications on IPFS', color: 'bg-[#16A34A]' },
-                  { icon: 'settings', title: 'Processing', desc: 'Processor logs transformation events with lab reports and photos', color: 'bg-[#D97706]' },
-                  { icon: 'local_shipping', title: 'Distribution', desc: 'Distributor records transit with GPS locations and timestamps', color: 'bg-[#EA580C]' },
-                  { icon: 'store', title: 'Retail', desc: 'Retailer confirms product receipt and shelf placement', color: 'bg-[#7C3AED]' },
-                  { icon: 'smartphone', title: 'Consumer', desc: 'Consumer scans QR code to view complete verified journey', color: 'bg-[#0254EC]' }
+                  { icon: Wheat, title: 'Farm Registration', desc: 'Farmer registers product batch with organic certifications on IPFS', color: 'bg-[#16A34A]' },
+                  { icon: Settings, title: 'Processing', desc: 'Processor logs transformation events with lab reports and photos', color: 'bg-[#D97706]' },
+                  { icon: Truck, title: 'Distribution', desc: 'Distributor records transit with GPS locations and timestamps', color: 'bg-[#EA580C]' },
+                  { icon: Store, title: 'Retail', desc: 'Retailer confirms product receipt and shelf placement', color: 'bg-[#7C3AED]' },
+                  { icon: Smartphone, title: 'Consumer', desc: 'Consumer scans QR code to view complete verified journey', color: 'bg-[#0254EC]' }
                 ].map((step, i) => (
                   <div key={i} className="flex flex-col items-center text-center group">
                     <div className={"w-10 h-10 rounded-full " + step.color + " text-white flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform"}>
-                      <span className="material-symbols-outlined text-xl">{step.icon}</span>
+                      <step.icon className="w-5 h-5" />
                     </div>
                     <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full w-full">
                       <h3 className="font-bold text-slate-900 mb-3">{step.title}</h3>
@@ -206,21 +229,21 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div className="group">
                 <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                  <span className="material-symbols-outlined text-3xl">security</span>
+                  <ShieldCheck className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Immutable Records</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg">Every supply chain event is permanently recorded on Polygon blockchain. No tampering, no fraud, just pure transparency.</p>
               </div>
               <div className="group">
                 <div className="w-16 h-16 rounded-2xl bg-slate-100 text-slate-900 flex items-center justify-center mb-8 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
-                  <span className="material-symbols-outlined text-3xl">qr_code_2</span>
+                  <ScanQrCode className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Instant Verification</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg">Consumers scan QR code on packaging to access complete product history in seconds. No apps required.</p>
               </div>
               <div className="group">
                 <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
-                  <span className="material-symbols-outlined text-3xl">workspace_premium</span>
+                  <Award className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Organic Certification NFTs</h3>
                 <p className="text-on-surface-variant leading-relaxed text-lg">Farmers receive soulbound NFT certificates verifiable on-chain when they register organic products, ensuring high-value authenticity.</p>
@@ -262,7 +285,7 @@ const Home: React.FC = () => {
                   <div className="absolute left-3 top-3 bottom-3 w-0.5 bg-slate-100"></div>
                   <div className="flex items-center gap-4 relative">
                     <div className="w-6 h-6 rounded-full bg-emerald-500 ring-4 ring-emerald-50 z-10 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-[14px] text-white" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
+                      <ShieldCheck className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div>
                       <p className="text-sm font-bold">Harvested</p>
@@ -295,10 +318,10 @@ const Home: React.FC = () => {
                 
                 <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl group cursor-pointer" onClick={() => navigate('/verify?batch=CT-2024-0871')}>
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-blue-600">visibility</span>
+                    <Eye className="w-5 h-5 text-blue-600" />
                     <span className="text-sm font-bold">View Full Chain on Polygon</span>
                   </div>
-                  <span className="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </div>
@@ -315,16 +338,16 @@ const Home: React.FC = () => {
               </p>
               <Link to="/about#team">
                 <button className="bg-blue-600 !text-white font-black px-8 py-4 rounded-full hover:bg-blue-700 hover:scale-105 hover:shadow-xl active:scale-95 transition-all flex items-center gap-2 shadow-lg shadow-blue-600/20">
-                  Meet the Team <span className="material-symbols-outlined">group</span>
+                  Meet the Team <Users className="w-5 h-5" />
                 </button>
               </Link>
             </div>
             <div className="w-full md:w-1/2 grid grid-cols-2 gap-4">
               <div className="aspect-square bg-emerald-50 rounded-2xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-emerald-600 text-5xl">diversity_3</span>
+                <Users className="w-12 h-12 text-emerald-600" />
               </div>
               <div className="aspect-square bg-blue-50 rounded-2xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-blue-600 text-5xl">engineering</span>
+                <HardHat className="w-12 h-12 text-blue-600" />
               </div>
             </div>
           </div>
@@ -336,7 +359,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-1">
             <div className="text-2xl font-black text-slate-900 mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-blue-600" style={{ fontVariationSettings: "'FILL' 1" }}>account_tree</span> KETJU
+              <Network className="w-7 h-7 text-blue-600" /> KETJU
             </div>
             <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-xs">Building the world's most transparent and secure food tracking network, one block at a time.</p>
           </div>
@@ -360,7 +383,7 @@ const Home: React.FC = () => {
             <div className="flex gap-2">
               <input className="bg-white border border-slate-200 rounded-full px-4 py-2 text-sm w-full focus:ring-2 focus:ring-blue-100 outline-none" placeholder="Email address" type="email" />
               <button className="bg-blue-600 text-white p-2 rounded-full flex items-center justify-center border-none shadow-lg shadow-blue-600/20">
-                <span className="material-symbols-outlined">send</span>
+                <Send className="w-5 h-5" />
               </button>
             </div>
           </div>

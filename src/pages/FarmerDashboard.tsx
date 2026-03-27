@@ -4,13 +4,30 @@ import DashboardLayout from '../components/DashboardLayout';
 import QRModal from '../components/QRModal';
 import { useAuth } from '../context/AuthContext';
 import { useApp, Product, Stage } from '../context/AppContext';
+import { 
+  Sprout, 
+  Settings, 
+  Truck, 
+  Store, 
+  Smartphone,
+  Box,
+  BadgeCheck,
+  Coins,
+  Clock,
+  ArrowUpRight,
+  TrendingUp,
+  ArrowRight,
+  CheckCircle2,
+  XCircle,
+  Radio
+} from 'lucide-react';
 
-const STAGE_CONFIG: Record<Stage, { label: string; color: string; icon: string; bg: string }> = {
-  farm:         { label: 'Farm',         color: 'text-green-700',  bg: 'bg-green-100',  icon: 'agriculture' },
-  processing:   { label: 'Processing',   color: 'text-amber-700',  bg: 'bg-amber-100',  icon: 'settings' },
-  distribution: { label: 'Distribution', color: 'text-orange-700', bg: 'bg-orange-100', icon: 'local_shipping' },
-  retail:       { label: 'Retail',       color: 'text-purple-700', bg: 'bg-purple-100', icon: 'store' },
-  consumer:     { label: 'Consumer',     color: 'text-blue-700',   bg: 'bg-blue-100',   icon: 'smartphone' },
+const STAGE_CONFIG: Record<Stage, { label: string; color: string; icon: React.ElementType; bg: string }> = {
+  farm:         { label: 'Farm',         color: 'text-green-700',  bg: 'bg-green-100',  icon: Sprout },
+  processing:   { label: 'Processing',   color: 'text-amber-700',  bg: 'bg-amber-100',  icon: Settings },
+  distribution: { label: 'Distribution', color: 'text-orange-700', bg: 'bg-orange-100', icon: Truck },
+  retail:       { label: 'Retail',       color: 'text-purple-700', bg: 'bg-purple-100', icon: Store },
+  consumer:     { label: 'Consumer',     color: 'text-blue-700',   bg: 'bg-blue-100',   icon: Smartphone },
 };
 
 export default function FarmerDashboard() {
@@ -48,19 +65,19 @@ export default function FarmerDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
         {[
-          { icon: 'inventory_2', value: myProducts.length, label: 'Total Products', sub: '+2 this month', subColor: 'text-emerald-600', subIcon: 'trending_up' },
-          { icon: 'verified', value: certified, label: 'Organic Certified', sub: `${Math.round((certified / myProducts.length) * 100) || 0}% of your batches`, subColor: 'text-on-surface-variant', borderL: 'border-l-4 border-[#16A34A]' },
-          { icon: 'token', value: 3, label: 'NFT Certificates', sub: 'View in wallet', subColor: 'text-primary cursor-pointer hover:underline' },
-          { icon: 'pending_actions', value: pending, label: 'Pending Events', sub: 'Awaiting next update', subColor: 'text-amber-600', iconBg: 'bg-amber-100 text-amber-600' },
+          { icon: Box, value: myProducts.length, label: 'Total Products', sub: '+2 this month', subColor: 'text-emerald-600', subIcon: TrendingUp },
+          { icon: BadgeCheck, value: certified, label: 'Organic Certified', sub: `${Math.round((certified / myProducts.length) * 100) || 0}% of your batches`, subColor: 'text-on-surface-variant', borderL: 'border-l-4 border-[#16A34A]' },
+          { icon: Coins, value: 3, label: 'NFT Certificates', sub: 'View in wallet', subColor: 'text-primary cursor-pointer hover:underline' },
+          { icon: Clock, value: pending, label: 'Pending Events', sub: 'Awaiting next update', subColor: 'text-amber-600', iconBg: 'bg-amber-100 text-amber-600' },
         ].map((s, i) => (
           <div key={i} className={`bg-surface-container-lowest p-6 rounded-2xl shadow-sm group hover:translate-y-[-4px] transition-all border border-slate-100 ${s.borderL ?? ''}`}>
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${s.iconBg ?? 'bg-primary/10 text-primary'}`}>
-              <span className="material-symbols-outlined">{s.icon}</span>
+              <s.icon className="w-6 h-6" />
             </div>
             <div className="text-4xl font-black text-on-surface mb-1">{s.value}</div>
             <div className="text-sm font-semibold text-on-surface-variant">{s.label}</div>
             <div className={`text-xs font-bold mt-2 flex items-center gap-1 ${s.subColor}`}>
-              {s.subIcon && <span className="material-symbols-outlined text-sm">{s.subIcon}</span>}
+              {s.subIcon && <s.subIcon className="w-3.5 h-3.5" />}
               {s.sub}
             </div>
           </div>
@@ -74,7 +91,7 @@ export default function FarmerDashboard() {
             <div className="p-6 flex justify-between items-center bg-surface-container-low/30">
               <h3 className="text-xl font-bold text-on-surface">My Registered Batches</h3>
               <button className="text-sm font-bold text-primary flex items-center gap-1">
-                View All <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                View All <ArrowRight className="w-4 h-4" />
               </button>
             </div>
             <div className="overflow-x-auto">
@@ -101,14 +118,14 @@ export default function FarmerDashboard() {
                         </td>
                         <td className="px-6 py-5">
                           <span className={`px-3 py-1 rounded-full ${sc.bg} ${sc.color} text-[10px] font-black uppercase flex items-center w-fit gap-1`}>
-                            <span className="material-symbols-outlined text-[14px]">{sc.icon}</span>
+                            <sc.icon className="w-3.5 h-3.5" />
                             {sc.label}
                           </span>
                         </td>
                         <td className="px-6 py-5">
                           {p.isOrganic
-                            ? <span className="material-symbols-outlined text-emerald-600" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                            : <span className="material-symbols-outlined text-on-surface-variant/40">cancel</span>
+                            ? <BadgeCheck className="w-5 h-5 text-emerald-600" />
+                            : <XCircle className="w-5 h-5 text-on-surface-variant/40" />
                           }
                         </td>
                         <td className="px-6 py-5 text-right space-x-2">
@@ -141,7 +158,7 @@ export default function FarmerDashboard() {
           {/* Recent Activity */}
           <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100">
             <div className="flex items-center gap-2 mb-6">
-              <span className="material-symbols-outlined text-primary">sensors</span>
+              <Radio className="w-5 h-5 text-primary" />
               <h3 className="text-xl font-bold text-on-surface">Recent Activity</h3>
             </div>
             <div className="space-y-6 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container">

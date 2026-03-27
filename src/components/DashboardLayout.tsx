@@ -2,24 +2,37 @@ import React, { ReactNode } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import { useAuth, Role } from '../context/AuthContext';
+import { 
+  LayoutDashboard, 
+  Box, 
+  PlusSquare, 
+  History, 
+  Settings, 
+  Truck, 
+  Store, 
+  ShieldCheck, 
+  ScanQrCode,
+  ShieldAlert,
+  LogOut
+} from 'lucide-react';
 
 interface SidebarLink {
-  icon: string;
+  icon: React.ElementType;
   label: string;
   path: string;
   roles: Role[];
 }
 
 const SIDEBAR_LINKS: SidebarLink[] = [
-  { icon: 'dashboard', label: 'Dashboard', path: '/dashboard', roles: ['farmer', 'processor', 'distributor', 'retailer', 'admin'] },
-  { icon: 'inventory_2', label: 'My Products', path: '/farmer', roles: ['farmer'] },
-  { icon: 'add_box', label: 'Register Product', path: '/register', roles: ['farmer'] },
-  { icon: 'history_edu', label: 'Log Event', path: '/log-event', roles: ['farmer', 'processor', 'distributor', 'retailer'] },
-  { icon: 'precision_manufacturing', label: 'Operations', path: '/processor', roles: ['processor'] },
-  { icon: 'local_shipping', label: 'Logistics', path: '/distributor', roles: ['distributor'] },
-  { icon: 'storefront', label: 'Inventory', path: '/retailer', roles: ['retailer'] },
-  { icon: 'admin_panel_settings', label: 'Admin Panel', path: '/admin', roles: ['admin'] },
-  { icon: 'qr_code_scanner', label: 'Scan QR', path: '/scanner', roles: ['farmer', 'processor', 'distributor', 'retailer', 'admin'] },
+  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', roles: ['farmer', 'processor', 'distributor', 'retailer', 'admin'] },
+  { icon: Box, label: 'My Products', path: '/farmer', roles: ['farmer'] },
+  { icon: PlusSquare, label: 'Register Product', path: '/register', roles: ['farmer'] },
+  { icon: History, label: 'Log Event', path: '/log-event', roles: ['farmer', 'processor', 'distributor', 'retailer'] },
+  { icon: Settings, label: 'Operations', path: '/processor', roles: ['processor'] },
+  { icon: Truck, label: 'Logistics', path: '/distributor', roles: ['distributor'] },
+  { icon: Store, label: 'Inventory', path: '/retailer', roles: ['retailer'] },
+  { icon: ShieldCheck, label: 'Admin Panel', path: '/admin', roles: ['admin'] },
+  { icon: ScanQrCode, label: 'Scan QR', path: '/scanner', roles: ['farmer', 'processor', 'distributor', 'retailer', 'admin'] },
 ];
 
 interface DashboardLayoutProps {
@@ -61,7 +74,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     : 'text-[#434655] hover:bg-[#f0ecfb]'
                 }`}
               >
-                <span className="material-symbols-outlined">{link.icon}</span>
+                <link.icon className="w-5 h-5" />
                 <span className="font-medium text-sm">{link.label}</span>
               </button>
             ))}
@@ -76,7 +89,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               </code>
             </div>
             <div className="mt-3 pt-3 border-t border-slate-200 flex items-center gap-1 text-blue-600">
-              <span className={`material-symbols-outlined text-xs font-bold`}>verified_user</span>
+              <ShieldCheck className="w-3.5 h-3.5" />
               <span className="text-[10px] font-black uppercase truncate">{user?.role} verified</span>
             </div>
           </div>
@@ -85,7 +98,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             onClick={logout}
             className="mt-4 px-4 py-3 flex items-center gap-3 rounded-full text-red-600 hover:bg-red-50 transition-all text-left"
           >
-            <span className="material-symbols-outlined">logout</span>
+            <LogOut className="w-5 h-5" />
             <span className="font-medium text-sm">Logout</span>
           </button>
         </aside>

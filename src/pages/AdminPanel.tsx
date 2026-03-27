@@ -2,6 +2,20 @@ import React from 'react';
 import DashboardLayout from '../components/DashboardLayout';
 import { useAuth } from '../context/AuthContext';
 import { useApp } from '../context/AppContext';
+import { 
+  UserPlus, 
+  Users, 
+  Sprout, 
+  Factory, 
+  Truck, 
+  Store, 
+  AlertTriangle, 
+  Search, 
+  Database, 
+  History, 
+  Activity, 
+  Network 
+} from 'lucide-react';
 
 export default function AdminPanel() {
   const { user } = useAuth();
@@ -17,7 +31,7 @@ export default function AdminPanel() {
             <p className="text-lg text-on-surface-variant max-w-2xl leading-relaxed">Assign and revoke blockchain roles for registered stakeholders. Maintain integrity across the supply chain ledger.</p>
           </div>
           <button className="px-8 py-3 bg-primary-container text-on-primary rounded-full font-bold flex items-center gap-2 hover:shadow-lg transition-all active:scale-95 shadow-lg shadow-primary-container/20">
-            <span className="material-symbols-outlined">person_add</span>
+            <UserPlus className="w-5 h-5" />
             Grant New Role
           </button>
         </div>
@@ -29,14 +43,14 @@ export default function AdminPanel() {
             {/* System Stats Bento Grid */}
             <div className="grid grid-cols-5 gap-4">
               {[
-                { label: 'Total Users', value: 48, icon: 'group', color: 'border-primary' },
-                { label: 'Farmers', value: 12, icon: 'agriculture', color: 'border-green-500' },
-                { label: 'Processors', value: 8, icon: 'factory', color: 'border-amber-500' },
-                { label: 'Distributors', value: 15, icon: 'local_shipping', color: 'border-orange-500' },
-                { label: 'Retailers', value: 13, icon: 'storefront', color: 'border-purple-500' },
+                { label: 'Total Users', value: 48, icon: Users, color: 'border-primary' },
+                { label: 'Farmers', value: 12, icon: Sprout, color: 'border-green-500' },
+                { label: 'Processors', value: 8, icon: Factory, color: 'border-amber-500' },
+                { label: 'Distributors', value: 15, icon: Truck, color: 'border-orange-500' },
+                { label: 'Retailers', value: 13, icon: Store, color: 'border-purple-500' },
               ].map(s => (
                 <div key={s.label} className={`bg-surface-container-lowest p-6 rounded-2xl shadow-sm border-l-4 ${s.color} hover:translate-y-[-2px] transition-all`}>
-                  <span className="material-symbols-outlined text-on-surface-variant mb-3">{s.icon}</span>
+                  <s.icon className="w-5 h-5 text-on-surface-variant mb-3" />
                   <div className="text-2xl font-black text-on-surface">{s.value}</div>
                   <div className="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">{s.label}</div>
                 </div>
@@ -71,7 +85,7 @@ export default function AdminPanel() {
               </div>
               
               <div className="flex items-center gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
-                <span className="material-symbols-outlined text-amber-600 text-xl">warning</span>
+                <AlertTriangle className="w-5 h-5 text-amber-600" />
                 <p className="text-xs text-amber-800/80 font-medium">This will trigger an on-chain transaction from the Admin wallet. Gas fees apply and the change is immutable on the ledger once confirmed.</p>
               </div>
             </section>
@@ -82,7 +96,7 @@ export default function AdminPanel() {
                 <h3 className="text-xl font-bold text-on-surface">Registered Stakeholders</h3>
                 <div className="flex gap-3">
                   <div className="relative">
-                    <span className="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-sm">search</span>
+                    <Search className="absolute left-3 top-2.5 text-on-surface-variant w-4 h-4" />
                     <input className="bg-surface-container-low border-none rounded-full text-xs pl-10 pr-4 h-9 w-64 focus:ring-primary/40 focus:bg-white transition-all shadow-sm" placeholder="Search users..." type="text" />
                   </div>
                   <select className="bg-surface-container-low border-none rounded-full text-xs h-9 px-4 focus:ring-primary/40 shadow-sm">
@@ -110,7 +124,9 @@ export default function AdminPanel() {
                         <div className="text-xs text-on-surface-variant font-medium">rajesh@farm.in</div>
                       </td>
                       <td className="px-6 py-5">
-                        <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-green-50 text-green-700 rounded-full w-fit">🌾 Farmer</span>
+                        <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest px-2 py-1 bg-green-50 text-green-700 rounded-full w-fit">
+                          <Sprout className="w-3 h-3" /> Farmer
+                        </span>
                       </td>
                       <td className="px-6 py-5">
                         <code className="text-[10px] font-mono text-primary bg-primary/5 px-2 py-1 rounded">0x4f2c...8b1d</code>
@@ -152,7 +168,7 @@ export default function AdminPanel() {
               </div>
               <div className="mt-8 pt-6 border-t border-surface-variant">
                 <div className="flex items-center gap-2 text-[10px] font-mono text-on-surface-variant">
-                  <span className="material-symbols-outlined text-xs">database</span>
+                  <Database className="w-3.5 h-3.5" />
                   Block Synced: #45,123,847
                 </div>
               </div>
@@ -161,7 +177,7 @@ export default function AdminPanel() {
             {/* Recent Actions */}
             <section className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100">
               <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-on-surface">
-                <span className="material-symbols-outlined text-primary">history</span>
+                <History className="w-5 h-5 text-primary" />
                 Audit Log
               </h3>
               <div className="space-y-6 relative before:absolute before:left-[5px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container">
@@ -182,7 +198,7 @@ export default function AdminPanel() {
             <div className="p-6 rounded-2xl bg-gradient-to-br from-[#01123F] to-primary text-white shadow-lg overflow-hidden relative shadow-primary/30">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-16 -mt-16 rotate-12"></div>
               <div className="flex justify-between items-start mb-4 relative z-10">
-                <span className="material-symbols-outlined">hub</span>
+                <Network className="w-5 h-5" />
                 <span className="text-[10px] font-bold uppercase tracking-widest bg-white/20 px-2 py-0.5 rounded backdrop-blur-md">Mainnet Node</span>
               </div>
               <p className="text-xs font-bold mb-1 relative z-10">RoleManager.sol</p>

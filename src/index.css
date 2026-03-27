@@ -111,13 +111,6 @@ button {
   cursor: pointer;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  font-size: inherit;
-  display: inline-flex;
-  vertical-align: middle;
-}
-
 .glass-panel {
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.7);

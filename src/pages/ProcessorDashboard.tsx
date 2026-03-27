@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { useApp, Stage } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
+import { 
+  ClipboardList, 
+  Settings, 
+  CheckCircle2, 
+  Eye, 
+  History 
+} from 'lucide-react';
 
 const STAGE_LABEL: Record<Stage, string> = {
   farm: 'Farm', processing: 'Processing', distribution: 'Distribution', retail: 'Retail', consumer: 'Consumer',
@@ -32,13 +39,13 @@ export default function ProcessorDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         {[
-          { icon: 'pending_actions', value: pending.length, label: 'Awaiting Processing', color: 'text-amber-600', bg: 'bg-amber-100' },
-          { icon: 'precision_manufacturing', value: processing.length, label: 'Currently Processing', color: 'text-orange-600', bg: 'bg-orange-100' },
-          { icon: 'check_circle', value: done.length, label: 'Processed & Shipped', color: 'text-green-600', bg: 'bg-green-100' },
+          { icon: ClipboardList, value: pending.length, label: 'Awaiting Processing', color: 'text-amber-600', bg: 'bg-amber-100' },
+          { icon: Settings, value: processing.length, label: 'Currently Processing', color: 'text-orange-600', bg: 'bg-orange-100' },
+          { icon: CheckCircle2, value: done.length, label: 'Processed & Shipped', color: 'text-green-600', bg: 'bg-green-100' },
         ].map((s, i) => (
           <div key={i} className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm group hover:translate-y-[-4px] transition-all border border-slate-100">
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${s.bg} ${s.color}`}>
-              <span className="material-symbols-outlined">{s.icon}</span>
+              <s.icon className="w-6 h-6" />
             </div>
             <div className="text-4xl font-black text-on-surface mb-1">{s.value}</div>
             <div className="text-sm font-semibold text-on-surface-variant">{s.label}</div>

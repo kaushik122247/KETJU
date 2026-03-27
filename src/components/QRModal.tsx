@@ -1,5 +1,6 @@
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
+import { X, Copy, Download } from 'lucide-react';
 
 interface QRModalProps {
   batchId: string;
@@ -33,7 +34,7 @@ export default function QRModal({ batchId, productName, onClose }: QRModalProps)
             <p className="text-slate-500 font-mono text-xs mt-1">Batch #{batchId}</p>
           </div>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-700 transition-colors">
-            <span className="material-symbols-outlined">close</span>
+            <X className="w-6 h-6" />
           </button>
         </div>
 
@@ -48,14 +49,14 @@ export default function QRModal({ batchId, productName, onClose }: QRModalProps)
             onClick={() => navigator.clipboard.writeText(verifyUrl)}
             className="flex-1 py-2.5 border-2 border-primary text-primary rounded-full text-sm font-bold hover:bg-primary/5 transition-all flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm">content_copy</span>
+            <Copy className="w-4 h-4" />
             Copy Link
           </button>
           <button
             onClick={handleDownload}
             className="flex-1 py-2.5 bg-primary-container text-on-primary rounded-full text-sm font-bold hover:bg-primary transition-all flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined text-sm">download</span>
+            <Download className="w-4 h-4" />
             Download
           </button>
         </div>

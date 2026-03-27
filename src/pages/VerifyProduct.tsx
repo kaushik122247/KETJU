@@ -2,6 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { useApp, Product, SupplyEvent, Stage } from '../context/AppContext';
+import { 
+  Search, 
+  SearchX, 
+  ScanQrCode, 
+  ChevronRight, 
+  FlaskConical, 
+  MapPin, 
+  ArrowUpRight, 
+  QrCode, 
+  Copy, 
+  Clock, 
+  Check 
+} from 'lucide-react';
 
 const STAGE_COLORS: Record<Stage, { border: string; badge: string; badgeText: string; dot: string }> = {
   farm: { border: 'border-l-4 border-emerald-500', badge: 'bg-emerald-50 text-emerald-600', badgeText: 'FARM', dot: 'bg-emerald-500' },
@@ -57,7 +70,7 @@ export default function VerifyProduct() {
               className="flex-1 bg-surface-container-low border-none rounded-xl p-4 font-mono text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
             />
             <button onClick={handleSearch} className="bg-primary-container text-on-primary px-8 py-3 rounded-xl font-bold hover:bg-primary transition-all flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm">search</span>
+              <Search className="w-4 h-4" />
               Verify
             </button>
           </div>
@@ -66,7 +79,7 @@ export default function VerifyProduct() {
         {/* Not Found */}
         {notFound && (
           <div className="max-w-lg mx-auto px-6 text-center py-16">
-            <span className="material-symbols-outlined text-6xl text-on-surface-variant mb-4 block">search_off</span>
+            <SearchX className="w-16 h-16 text-on-surface-variant mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-2">Product Not Found</h2>
             <p className="text-on-surface-variant mb-6">No batch with ID <code className="font-mono bg-surface-container px-1 rounded">#{batchId}</code> exists on the chain.</p>
             <button onClick={() => navigate('/scanner')} className="bg-primary-container text-on-primary px-8 py-3 rounded-full font-bold hover:bg-primary transition-all">
@@ -78,7 +91,7 @@ export default function VerifyProduct() {
         {/* Landing prompt */}
         {!batchId && !notFound && (
           <div className="max-w-lg mx-auto px-6 text-center py-16">
-            <span className="material-symbols-outlined text-6xl text-primary mb-4 block">qr_code_scanner</span>
+            <ScanQrCode className="w-16 h-16 text-primary mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-2">Verify Any Product</h2>
             <p className="text-on-surface-variant mb-6">Enter a batch ID above or scan a QR code to trace the complete supply chain journey.</p>
             <button onClick={() => navigate('/scanner')} className="bg-primary-container text-on-primary px-8 py-3 rounded-full font-bold hover:bg-primary transition-all">
@@ -96,9 +109,9 @@ export default function VerifyProduct() {
                 <div className="lg:col-span-8">
                   <nav className="flex items-center gap-2 text-on-surface-variant text-sm font-medium mb-6">
                     <button onClick={() => navigate('/')} className="hover:text-primary transition-colors">Home</button>
-                    <span className="material-symbols-outlined text-xs">chevron_right</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
                     <span>Verify Product</span>
-                    <span className="material-symbols-outlined text-xs">chevron_right</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
                     <span className="text-primary font-bold">{product.batchId}</span>
                   </nav>
                   <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-on-surface mb-4">{product.name}</h1>
@@ -106,7 +119,7 @@ export default function VerifyProduct() {
                   <div className="flex flex-wrap gap-3 mb-12">
                     {product.isOrganic && <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-sm font-bold">Organic Certified</span>}
                     <span className="px-4 py-1.5 rounded-full bg-on-secondary-fixed text-white text-sm font-bold">Blockchain Verified</span>
-                    {product.isCertified && <span className="px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-bold flex items-center gap-1"><span className="material-symbols-outlined text-sm">lab_research</span> Lab Tested</span>}
+                    {product.isCertified && <span className="px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-bold flex items-center gap-1"><FlaskConical className="w-4 h-4" /> Lab Tested</span>}
                   </div>
                   {/* Farmer Card */}
                   <div className="bg-surface-container p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-surface-container-high transition-all">
@@ -117,7 +130,7 @@ export default function VerifyProduct() {
                       <div>
                         <h3 className="text-lg font-bold text-on-surface">{product.farmerName}</h3>
                         <p className="text-on-surface-variant flex items-center gap-1">
-                          <span className="material-symbols-outlined text-sm">location_on</span>
+                          <MapPin className="w-3.5 h-3.5" />
                           {product.farmName}, {product.state}
                         </p>
                         <p className="text-xs font-bold text-primary mt-1 uppercase tracking-wider">Harvest Date: {product.harvestDate}</p>
@@ -125,7 +138,7 @@ export default function VerifyProduct() {
                     </div>
                     <button className="bg-surface-container-lowest text-primary px-6 py-2.5 rounded-full text-sm font-bold shadow-sm flex items-center gap-2 hover:bg-primary hover:text-white transition-all">
                       View IPFS Certificate
-                      <span className="material-symbols-outlined text-sm">north_east</span>
+                      <ArrowUpRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -133,15 +146,15 @@ export default function VerifyProduct() {
                 <div className="lg:col-span-4">
                   <div className="bg-surface-container-lowest p-8 rounded-3xl shadow-lg flex flex-col items-center text-center">
                     <div className="bg-surface-container-low p-6 rounded-2xl mb-6 flex items-center justify-center">
-                      <div className="w-48 h-48 bg-on-surface rounded-lg flex flex-col items-center justify-center gap-2">
-                        <span className="material-symbols-outlined text-5xl text-surface">qr_code_2</span>
+                      <div className="w-48 h-48 bg-on-surface rounded-lg flex flex-col items-center justify-center gap-3">
+                        <QrCode className="w-16 h-16 text-surface" />
                         <p className="text-surface/70 text-xs font-mono">#{product.batchId}</p>
                       </div>
                     </div>
                     <h4 className="text-lg font-bold text-on-surface mb-2">Scan to share journey</h4>
                     <div className="bg-surface-container-low px-4 py-2 rounded-lg font-mono text-sm text-on-surface-variant flex items-center gap-2">
                       {product.farmerWallet}
-                      <span className="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" onClick={() => navigator.clipboard.writeText(product.farmerWallet)}>content_copy</span>
+                      <Copy className="w-3.5 h-3.5 cursor-pointer hover:text-primary transition-colors" onClick={() => navigator.clipboard.writeText(product.farmerWallet)} />
                     </div>
                   </div>
                 </div>
@@ -172,10 +185,10 @@ export default function VerifyProduct() {
                             </div>
                             <div className="space-y-2 text-sm text-on-surface-variant">
                               <p className={`flex items-center gap-2 ${isRight ? 'justify-end' : ''}`}>
-                                <span className="material-symbols-outlined text-sm">location_on</span>{ev.location}
+                                <MapPin className="w-3.5 h-3.5" />{ev.location}
                               </p>
                               <p className={`flex items-center gap-2 ${isRight ? 'justify-end' : ''}`}>
-                                <span className="material-symbols-outlined text-sm">schedule</span>
+                                <Clock className="w-3.5 h-3.5" />
                                 {new Date(ev.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
                               </p>
                               {ev.notes && <p className="text-xs bg-surface-container p-2 rounded mt-2">{ev.notes}</p>}

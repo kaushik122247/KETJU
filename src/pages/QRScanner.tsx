@@ -1,5 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { 
+  ArrowLeft, 
+  QrCode, 
+  Keyboard, 
+  ArrowRight, 
+  Box, 
+  ChevronRight, 
+  History, 
+  ScanQrCode, 
+  CheckCircle2 
+} from 'lucide-react';
 
 interface RecentScan {
   batchId: string;
@@ -71,7 +82,7 @@ export default function QRScanner() {
       <header className="w-full top-0 sticky z-[60] bg-white/90 backdrop-blur-md border-b border-slate-200/60">
         <div className="flex items-center justify-between px-6 h-16 w-full">
           <button onClick={() => navigate(-1)} className="flex items-center justify-center p-2 rounded-full hover:bg-slate-100 text-blue-600 transition-colors">
-            <span className="material-symbols-outlined">arrow_back</span>
+            <ArrowLeft className="w-6 h-6" />
           </button>
           <span className="font-bold text-slate-900 tracking-tight">Product Scanner</span>
           <a href="/" className="text-sm font-semibold text-blue-600 border border-slate-200 px-4 py-1.5 rounded-full hover:bg-blue-600 hover:text-white transition-all">Home</a>
@@ -102,7 +113,7 @@ export default function QRScanner() {
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px] pointer-events-none" />
-            <span className="material-symbols-outlined text-slate-200/50 text-6xl relative z-10">qr_code_2</span>
+            <QrCode className="w-16 h-16 text-slate-200/50 relative z-10" />
             {/* Scanner line */}
             <div className="scanner-line absolute z-20" style={{ animation: 'scan 2.5s infinite linear', background: '#0050e3', boxShadow: '0 0 20px #0050e3' }} />
           </div>
@@ -132,7 +143,7 @@ export default function QRScanner() {
               placeholder="#CT-2024-0871"
             />
             <span className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-600 transition-colors">
-              <span className="material-symbols-outlined">keyboard</span>
+              <Keyboard className="w-6 h-6" />
             </span>
           </div>
           <div className="flex justify-center">
@@ -140,7 +151,7 @@ export default function QRScanner() {
               onClick={() => saveAndNavigate(input)}
               className="px-14 h-14 bg-blue-600 text-white font-bold rounded-full flex items-center justify-center gap-2 active:scale-95 transition-all shadow-xl shadow-blue-600/20 hover:bg-blue-500 hover:shadow-blue-500/30"
             >
-              Verify Product <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              Verify Product <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -165,14 +176,14 @@ export default function QRScanner() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
-                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>inventory_2</span>
+                      <Box className="w-6 h-6" />
                     </div>
                     <div className="text-left">
                       <p className="font-bold text-slate-900">Batch #{s.batchId}</p>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{new Date(s.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' })}</p>
                     </div>
                   </div>
-                  <span className="material-symbols-outlined text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all">chevron_right</span>
+                  <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                 </button>
               ))
             )}
@@ -181,7 +192,7 @@ export default function QRScanner() {
 
         <footer className="mt-16 mb-6 text-center">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-50 border border-slate-200 rounded-full">
-            <span className="material-symbols-outlined text-sm text-blue-600">verified</span>
+            <CheckCircle2 className="w-4 h-4 text-blue-600" />
             <p className="text-[11px] font-bold text-slate-400">All verifications are instant and powered by Polygon PoS.</p>
           </div>
         </footer>
@@ -190,15 +201,15 @@ export default function QRScanner() {
       {/* Bottom Nav */}
       <nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-white/90 backdrop-blur-2xl z-50 rounded-t-[32px] border-t border-slate-200/60 shadow-[0_-8px_48px_rgba(0,0,0,0.05)]">
         <button className="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full px-7 py-2.5 shadow-lg shadow-blue-600/20 transition-all">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>qr_code_scanner</span>
+          <ScanQrCode className="w-5 h-5" />
           <span className="text-[10px] font-bold uppercase tracking-widest mt-1">Scanner</span>
         </button>
         <button className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:text-blue-600 transition-all">
-          <span className="material-symbols-outlined text-xl">keyboard</span>
+          <Keyboard className="w-5 h-5" />
           <span className="text-[10px] font-bold uppercase tracking-widest mt-1">Manual</span>
         </button>
         <button className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:text-blue-600 transition-all">
-          <span className="material-symbols-outlined text-xl">history</span>
+          <History className="w-5 h-5" />
           <span className="text-[10px] font-bold uppercase tracking-widest mt-1">History</span>
         </button>
       </nav>

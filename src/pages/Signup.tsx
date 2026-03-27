@@ -2,14 +2,24 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth, Role } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
+import { 
+  Sprout, 
+  Settings, 
+  Truck, 
+  Store, 
+  CheckCircle2, 
+  AlertCircle, 
+  UserPlus,
+  LucideIcon
+} from 'lucide-react';
 
 type RoleOption = Exclude<Role, null | 'admin'>;
 
-const ROLES: { value: RoleOption; label: string; icon: string; description: string }[] = [
-  { value: 'farmer',      label: 'Farmer',      icon: 'agriculture',         description: 'Register product batches & log harvest events' },
-  { value: 'processor',   label: 'Processor',   icon: 'precision_manufacturing', description: 'Log processing & packaging events' },
-  { value: 'distributor', label: 'Distributor', icon: 'local_shipping',      description: 'Track shipments & distribution events' },
-  { value: 'retailer',    label: 'Retailer',    icon: 'storefront',          description: 'Confirm receipt & manage shelf placement' },
+const ROLES: { value: RoleOption; label: string; icon: LucideIcon; description: string }[] = [
+  { value: 'farmer',      label: 'Farmer',      icon: Sprout,         description: 'Register product batches & log harvest events' },
+  { value: 'processor',   label: 'Processor',   icon: Settings, description: 'Log processing & packaging events' },
+  { value: 'distributor', label: 'Distributor', icon: Truck,      description: 'Track shipments & distribution events' },
+  { value: 'retailer',    label: 'Retailer',    icon: Store,          description: 'Confirm receipt & manage shelf placement' },
 ];
 
 export default function Signup() {
@@ -76,11 +86,11 @@ export default function Signup() {
             </p>
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                <span className="material-symbols-outlined text-emerald-500 text-2xl">check_circle</span>
+                <CheckCircle2 className="w-6 h-6 text-emerald-500" />
                 <span className="text-slate-700 font-bold">Verified Producer Network</span>
               </div>
               <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                <span className="material-symbols-outlined text-emerald-500 text-2xl">check_circle</span>
+                <CheckCircle2 className="w-6 h-6 text-emerald-500" />
                 <span className="text-slate-700 font-bold">Immutable Audit Logs</span>
               </div>
             </div>
@@ -97,7 +107,7 @@ export default function Signup() {
 
             {error && (
               <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-xl mb-6 text-red-700 text-sm font-bold animate-shake">
-                <span className="material-symbols-outlined text-sm">error</span>
+                <AlertCircle className="w-4 h-4" />
                 {error}
               </div>
             )}
@@ -152,9 +162,7 @@ export default function Signup() {
                           : 'border-outline-variant/5 bg-surface-container-low hover:border-primary/20'
                       }`}
                     >
-                      <span className={`material-symbols-outlined text-2xl mb-2 block ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface-variant'}`}>
-                        {r.icon}
-                      </span>
+                      <r.icon className={`w-6 h-6 mb-2 block ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface-variant'}`} />
                       <p className={`font-black text-sm ${selectedRole === r.value ? 'text-primary-container' : 'text-on-surface'}`}>{r.label}</p>
                       <p className="text-[10px] text-on-surface-variant mt-1 leading-tight font-medium">{r.description}</p>
                     </button>
@@ -170,7 +178,7 @@ export default function Signup() {
                 {loading ? (
                   <><div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin" /> Creating Account…</>
                 ) : (
-                  <>Create Account <span className="material-symbols-outlined">person_add</span></>
+                  <>Create Account <UserPlus className="w-5 h-5" /></>
                 )}
               </button>
             </form>

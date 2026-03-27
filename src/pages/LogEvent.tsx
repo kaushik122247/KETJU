@@ -3,6 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { useApp, Stage } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
+import { 
+  CheckCircle2, 
+  ChevronRight, 
+  Info, 
+  Settings, 
+  CloudUpload, 
+  AlertTriangle, 
+  Link as LinkIcon 
+} from 'lucide-react';
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -95,7 +104,7 @@ export default function LogEvent() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-surface-container-highest/60 backdrop-blur-sm">
           <div className="bg-surface-container-lowest p-12 rounded-2xl max-w-md w-full text-center shadow-2xl">
             <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+              <CheckCircle2 className="w-12 h-12" />
             </div>
             <h3 className="text-3xl font-extrabold mb-2">Event Logged!</h3>
             <p className="text-on-surface-variant mb-8 leading-relaxed">
@@ -124,7 +133,7 @@ export default function LogEvent() {
         <div className="mb-12">
           <nav className="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
             <button onClick={() => navigate(-1)} className="hover:text-primary transition-colors">Dashboard</button>
-            <span className="material-symbols-outlined text-xs">chevron_right</span>
+            <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-primary-container font-medium">Log Supply Chain Event</span>
           </nav>
           <h1 className="text-5xl font-extrabold tracking-tight mb-4 text-on-surface">Log a Supply Chain Event</h1>
@@ -136,7 +145,7 @@ export default function LogEvent() {
         {/* Info banner */}
         <div className={`border-l-4 p-6 rounded-r-lg mb-12 flex items-start gap-4 ${roleColor} bg-opacity-10`}
           style={{ backgroundColor: 'rgba(251,191,36,0.05)', borderColor: user?.role === 'processor' ? '#D97706' : '#7C3AED' }}>
-          <span className="material-symbols-outlined">info</span>
+          <Info className="w-6 h-6" />
           <div>
             <p className="font-semibold mb-0.5">Role Verification Required</p>
             <p className="text-sm">You are logged in as <span className="font-bold uppercase">{user?.role ?? 'Unknown'}</span>. You can only log {stageForRole().toUpperCase()} stage events.</p>
@@ -179,7 +188,7 @@ export default function LogEvent() {
                     </div>
                   </div>
                   <div className="bg-green-50 text-green-700 text-xs font-bold py-2 px-3 rounded flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm">check_circle</span>
+                    <CheckCircle2 className="w-3.5 h-3.5" />
                     Product found and active in supply chain
                   </div>
                 </div>
@@ -210,7 +219,7 @@ export default function LogEvent() {
                 <div>
                   <label className="block text-sm font-bold text-on-surface-variant uppercase tracking-wider mb-2">Current Role</label>
                   <div className={`px-4 py-3 rounded-lg text-sm font-bold flex items-center gap-2 border ${roleColor}`}>
-                    <span className="material-symbols-outlined text-sm">precision_manufacturing</span>
+                    <Settings className="w-4 h-4" />
                     {stageForRole().toUpperCase()}
                   </div>
                 </div>
@@ -235,7 +244,7 @@ export default function LogEvent() {
                 <h2 className="text-2xl font-bold text-on-surface">Attach Evidence</h2>
               </div>
               <div className="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center text-center hover:border-primary-container/50 transition-colors bg-surface-container-low/30 mb-6">
-                <span className="material-symbols-outlined text-5xl text-on-surface-variant mb-4">cloud_upload</span>
+                <CloudUpload className="w-12 h-12 text-on-surface-variant mb-4" />
                 <p className="text-lg font-medium mb-1">Drag & drop files or click to browse</p>
                 <p className="text-sm text-on-surface-variant">PDF, JPG, PNG — stored permanently on IPFS</p>
               </div>
@@ -273,7 +282,7 @@ export default function LogEvent() {
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-error font-bold text-sm">
-                  <span className="material-symbols-outlined text-lg">warning</span>
+                  <AlertTriangle className="w-4.5 h-4.5" />
                   MetaMask signature required
                 </div>
                 <div className="flex gap-4">
@@ -283,7 +292,7 @@ export default function LogEvent() {
                     disabled={loading}
                     className="bg-primary-container text-on-primary px-10 py-3 rounded-full text-sm font-bold shadow-lg hover:bg-primary active:scale-95 transition-all flex items-center gap-2 disabled:opacity-60"
                   >
-                    {loading ? <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> Submitting…</> : <>Submit to Blockchain <span className="material-symbols-outlined text-lg">link</span></>}
+                    {loading ? <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> Submitting…</> : <>Submit to Blockchain <LinkIcon className="w-4.5 h-4.5" /></>}
                   </button>
                 </div>
               </div>
