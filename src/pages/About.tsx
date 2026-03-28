@@ -139,7 +139,7 @@ export default function About() {
             <div className="grid md:grid-cols-3 gap-10">
               {team.map(member => (
                 <div key={member.name} className="group relative bg-white border border-slate-200 rounded-[2.5rem] p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                  <div className="aspect-square w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-3xl font-bold mb-6 text-white shadow-lg shadow-blue-500/20 overflow-hidden">
+                  <div className="aspect-square w-24 h-24 rounded-2xl bg-white flex items-center justify-center text-3xl font-bold mb-6 text-blue-600 shadow-md shadow-blue-500/10 overflow-hidden border border-slate-100/50">
                     <TeamAvatar member={member} />
                   </div>
                   <h3 className="text-xl font-bold mb-1 text-slate-900">{member.name}</h3>
