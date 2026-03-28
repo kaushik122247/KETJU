@@ -10,7 +10,6 @@ import {
   Factory,
   Truck,
   UserCheck,
-  Link as LinkIcon,
   Network,
   Wheat,
   Settings,
